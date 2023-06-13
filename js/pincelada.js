@@ -7,13 +7,15 @@ class Pincelada {
     this.posY = 0;
     this.x = 0;
     this.tam = 30;
-    this.opacidad = random(0, 255);
+    this.blendInicial = 0.0;
   }
 
   dibujarGrafico(grafico) {
 
     this.posY = this.y += 2;
     this.x = sin(this.counter) * 20 + this.posX;
+    blendMode(DARKEST); 
+    grafico.tint(255, 255 * blendInicial);
     grafico.fill(0);
     grafico.noStroke();
     grafico.ellipse(this.x, this.posY, this.tam, this.tam);
