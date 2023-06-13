@@ -1,6 +1,6 @@
 class Pincelada {
 
-  constructor() {
+  constructor(posX) {
     this.y = 0;
     this.counter = 0;
     this.posX = random(-50, width + 50);

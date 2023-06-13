@@ -26,6 +26,8 @@ let imagen = [];
 let grafico = [];
 let eligeImagen;
 
+let posXCam;
+let espacioCaminantes = width/20;
 
 function setup() {
   createCanvas(600, 600);
@@ -39,11 +41,13 @@ function setup() {
     grafico[i] = createGraphics(width, height);
   }
 
-  for (let i = 0; i < 30; i++) {
-    p.push(new Pincelada());
-    p2.push(new Pincelada());
+  for (let i = 0; i < 20; i++) {
+    let x = posXCam + random(-5,5);
+    p.push(new Pincelada(x));
+    p2.push(new Pincelada(x));
     /*p3.push(new Pincelada());
     p4.push(new Pincelada());  */
+    posXCam += espacioCaminantes;
   }
   /* cuadrados = new Cuadrados(); */
 
