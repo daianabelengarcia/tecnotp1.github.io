@@ -86,26 +86,22 @@ function draw() {
     copia.mask(grafico[0]); 
    image(copia, 0, 0, width, height); 
 
-   volumenAlto = !volumenBajo;
-
-   /* if (p[0].posY >= height) {
+   if (p[0].posY >= height) {
     capa = 1;
   }
   if (capa == 1) {
     for (let i = 0; i < 20; i++) {
       if (haySonido) {
-        if (i %2==0) {
-          p2[i].dibujarGrafico(grafico[1]);
-        } else {
           p2[i].dibujarGrafico2(grafico[1]);
-        }
         }
       }
     }
   
-  copia = imagen[1].get();
+  copia = imagen[eligeImagen].get();
   copia.mask(grafico[1]);
-  image(copia, 0, 0, width, height);  */
+  image(copia, 0, 0, width, height); 
+
+  volumenAlto = !volumenBajo;
 
  /* if (p2[0].posY >= height) {
     capa = 2;
