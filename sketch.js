@@ -66,7 +66,7 @@ function draw() {
 
   haySonido = amp > AMP_MIN;
   volumenBajo = amp < 0.15;
-  let subioelVolumen = haysonido && !volumenAlto;
+  let subioelVolumen = haySonido && !volumenAlto;
 
   if (volumenBajo) {
     eligeImagen = 0;
