@@ -38,7 +38,7 @@ function setup() {
 
   userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
 
-  espacioCaminantes = width / 20;
+  espacioCaminantes = width / 20 * tamCam;
 
   for (let i = 0; i < 10; i++) {
     grafico[i] = createGraphics(width, height);
