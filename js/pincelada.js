@@ -1,9 +1,9 @@
 class Pincelada {
 
-  constructor(posX) {
+  constructor() {
     this.y = 0;
     this.counter = 0;
-    this.posX = posX;
+    this.posX = random(-15,width+15);
     this.posY = 0;
     this.x = 0;
     this.tam = 30;
