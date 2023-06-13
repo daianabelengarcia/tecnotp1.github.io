@@ -27,7 +27,7 @@ let grafico = [];
 let eligeImagen;
 
 let posXCam;
-let espacioCaminantes = width/20;
+let espacioCaminantes = width / 20;
 
 function setup() {
   createCanvas(600, 600);
