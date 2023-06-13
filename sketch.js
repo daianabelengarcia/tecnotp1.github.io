@@ -85,7 +85,7 @@ function draw() {
     copia.mask(grafico[0]); 
    image(copia, 0, 0, width, height); 
 
-   
+   volumenBajo = amp;
 
    /* if (p[0].posY >= height) {
     capa = 1;
