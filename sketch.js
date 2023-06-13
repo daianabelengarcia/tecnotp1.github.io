@@ -20,11 +20,10 @@ let p3 = [];
 let p4 = [];
 let cuadrados;
 let capa;
-let fondo;
 let imagen = [];
 let grafico = [];
 let numero;
-
+let eligeImagen;
 
 
 function setup() {
@@ -41,9 +40,9 @@ function setup() {
 
   for (let i = 0; i < 30; i++) {
     p.push(new Pincelada());
-    p2.push(new Pincelada());
-    /*p3.push(new Pincelada());
-    p4.push(new Pincelada()); */
+    /* p2.push(new Pincelada());
+    p3.push(new Pincelada());
+    p4.push(new Pincelada());  */
   }
   /* cuadrados = new Cuadrados(); */
 
@@ -68,20 +67,21 @@ function draw() {
   if (capa == 0) {
     for (let i = 0; i < 20; i++) {
       if (haySonido) {
-        if (i %2==0) {
-          p[i].dibujarGrafico(grafico[0], amp);
-        } else {
-          p[i].dibujarGrafico2(grafico[0], amp);
+        if (amp <= 0.1) {
+          eligeImagen = 0;
+        } else if (amp >= 0.1){
+          eligeImagen = 1;
         }
+          p[i].dibujarGrafico(grafico[0]);
         } 
       }
     }
   
-    let copia = imagen[0].get();
+    let copia = imagen[eligeImagen].get();
     copia.mask(grafico[0]); 
    image(copia, 0, 0, width, height); 
 
-   if (p[0].posY >= height + 30) {
+   /* if (p[0].posY >= height) {
     capa = 1;
   }
   if (capa == 1) {
@@ -98,7 +98,7 @@ function draw() {
   
   copia = imagen[1].get();
   copia.mask(grafico[1]);
-  image(copia, 0, 0, width, height); 
+  image(copia, 0, 0, width, height);  */
 
  /* if (p2[0].posY >= height) {
     capa = 2;
