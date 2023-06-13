@@ -69,9 +69,9 @@ function draw() {
     for (let i = 0; i < 20; i++) {
       if (haySonido) {
         if (i %2==0) {
-          p[i].dibujarGrafico(grafico[0]);
+          p[i].dibujarGrafico(grafico[0], amp);
         } else {
-          p[i].dibujarGrafico2(grafico[0]);
+          p[i].dibujarGrafico2(grafico[0], amp);
         }
         } 
       }
