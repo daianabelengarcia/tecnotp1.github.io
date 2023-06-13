@@ -54,6 +54,7 @@ function setup() {
 
 function preload(){
   for (let i=0; i<2; i++){
+    
     imagen[i] = loadImage("../img/prueba-capa-"+i+".jpg");
   }
   
