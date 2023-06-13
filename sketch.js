@@ -28,7 +28,7 @@ let eligeImagen;
 
 let posXCam;
 let espacioCaminantes;
-let tamCam = 30;
+let tamCam = 40;
 
 function setup() {
   createCanvas(600, 600);
