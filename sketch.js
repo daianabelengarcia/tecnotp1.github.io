@@ -54,11 +54,7 @@ function setup() {
 
 function preload(){
   for (let i=0; i<2; i++){
-<<<<<<< HEAD
-    imagen[i] = loadImage("./img/prueba-capa-"+i+".jpg");
-=======
-    imagen[i] = loadImage("img/prueba-capa-"+i+".jpg");
->>>>>>> bdc5f9f02ef09522886b32d308a3dfed0f30d7ef
+    imagen[i] = loadImage("../img/prueba-capa-"+i+".jpg");
   }
   
 }
