@@ -54,7 +54,7 @@ function setup() {
 
 function preload() {
   for (let i = 0; i < 2; i++) {
-    imagen[i] = loadImage('img/prueba-capa-' + i + '.jpg');
+    imagen[i] = loadImage('img/color-' + i + '.jpg');
   }
 
 }
@@ -116,7 +116,7 @@ function draw() {
 
   volumenAlto = !volumenBajo; //volumen alto es verdadero cuando la otra condicion deja de serlo
   console.log (amp,volumenAlto);
-  
+
   /* if (p2[0].posY >= height) {
      capa = 2;
    }
