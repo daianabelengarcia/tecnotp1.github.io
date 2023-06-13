@@ -26,10 +26,6 @@ let imagen = [];
 let grafico = [];
 let eligeImagen;
 
-let posXCam;
-let espacioCaminantes;
-let tamCam = 40;
-
 function setup() {
   createCanvas(600, 600);
 
@@ -38,18 +34,15 @@ function setup() {
 
   userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
 
-  espacioCaminantes = width / 20 * tamCam;
-
   for (let i = 0; i < 10; i++) {
     grafico[i] = createGraphics(width, height);
   }
 
   for (let i = 0; i < 20; i++) {
-    p.push(new Pincelada(posXCam));
-    p2.push(new Pincelada(posXCam));
+    p.push(new Pincelada(i*50+random(5,10)));
+    p2.push(new Pincelada(i*50+random(5,10)));
     /*p3.push(new Pincelada());
     p4.push(new Pincelada());  */
-    posXCam += espacioCaminantes + tamCam;
   }
   /* cuadrados = new Cuadrados(); */
 
