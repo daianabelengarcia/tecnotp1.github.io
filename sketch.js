@@ -53,7 +53,7 @@ function setup() {
 }
 
 function preload() {
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 4; i++) {
     imagen[i] = loadImage('img/color-' + i + '.jpg');
   }
 
@@ -96,9 +96,9 @@ function draw() {
 
   if (capa == 1) {
     if (volumenBajo) { 
-      eligeImagen = 0;
+      eligeImagen = 2;
     } else if (subioelVolumen) {
-      eligeImagen = 1;
+      eligeImagen = 3;
     }
 
     for (let i = 0; i < 20; i++) {
