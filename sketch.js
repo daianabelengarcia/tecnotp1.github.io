@@ -42,8 +42,8 @@ function setup() {
 
   for (let i = 0; i < 30; i++) {
     p.push(new Pincelada());
-    /* p2.push(new Pincelada());
-    p3.push(new Pincelada());
+    p2.push(new Pincelada());
+    /*p3.push(new Pincelada());
     p4.push(new Pincelada());  */
   }
   /* cuadrados = new Cuadrados(); */
