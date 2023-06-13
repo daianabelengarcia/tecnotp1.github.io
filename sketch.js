@@ -39,8 +39,8 @@ function setup() {
   }
 
   for (let i = 0; i < 20; i++) {
-    p.push(new Pincelada(i*60+20));
-    p2.push(new Pincelada(i*50+random(5,10)));
+    p.push(new Pincelada(i*40+random(5,10)));
+    p2.push(new Pincelada(i*40+random(5,10)));
     /*p3.push(new Pincelada());
     p4.push(new Pincelada());  */
   }
