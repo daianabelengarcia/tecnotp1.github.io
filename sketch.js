@@ -67,15 +67,17 @@ function draw() {
   volumenBajo = amp < 0.15; //el volumen es bajo mientras no supere esa amplitud
   let subioelVolumen = haySonido && volumenAlto; //sube el volumen si hay sonido y el volumen es alto
 
-
+  if (capa == 0 && volumenBajo) { //elige la imagen que se muestra en la mascara de recorte dependiendo el volumen del sonido
+    eligeImagen = 0;
+  } else if (capa == 0 && subioelVolumen) {
+    eligeImagen = 1;
+  } else if (capa == 1 && volumenBajo) { 
+    eligeImagen = 2;
+  } else if (capa == 1 && subioelVolumen) {
+    eligeImagen = 3;
+  }
 
   if (capa == 0) {
-    if (volumenBajo) { //elige la imagen que se muestra en la mascara de recorte dependiendo el volumen del sonido
-      eligeImagen = 0;
-    } else if (subioelVolumen) {
-      eligeImagen = 1;
-    }
-
     for (let i = 0; i < 20; i++) {
       if (haySonido) {
         p[i].dibujarGrafico(grafico[0]);
@@ -95,11 +97,6 @@ function draw() {
 
 
   if (capa == 1) {
-    if (volumenBajo) { 
-      eligeImagen = 2;
-    } else if (subioelVolumen) {
-      eligeImagen = 3;
-    }
 
     for (let i = 0; i < 20; i++) {
       if (haySonido) {
