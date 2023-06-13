@@ -12,7 +12,8 @@ let mic;
 
 let amp;
 let haySonido = false;
-let volumenBajo= true;
+let volumenAlto = false;
+let volumenBajo = false;
 
 
 let p = [];
@@ -65,7 +66,7 @@ function draw() {
 
   haySonido = amp > AMP_MIN;
   volumenBajo = amp < 0.15;
-  let subioelVolumen = haysonido && !volumenBajo;
+  let subioelVolumen = haysonido && !volumenAlto;
 
   if (volumenBajo) {
     eligeImagen = 0;
@@ -85,7 +86,7 @@ function draw() {
     copia.mask(grafico[0]); 
    image(copia, 0, 0, width, height); 
 
-   volumenBajo = amp;
+   volumenAlto = !volumenBajo;
 
    /* if (p[0].posY >= height) {
     capa = 1;
