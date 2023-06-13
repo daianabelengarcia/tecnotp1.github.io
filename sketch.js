@@ -33,7 +33,7 @@ function setup() {
   mic.start();
 
   userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
-  fondo = createGraphics(width, height);
+  
   for (let i=0; i<10; i++) {
     grafico[i] = createGraphics(width, height);
   }
@@ -63,15 +63,16 @@ function draw() {
   amp = mic.getLevel();
 
   haySonido = amp > AMP_MIN;
+  
+  if (amp <= 0.1) {
+    eligeImagen = 0;
+  } else if (amp >= 0.1){
+    eligeImagen = 1;
+  }
 
   if (capa == 0) {
     for (let i = 0; i < 20; i++) {
       if (haySonido) {
-        if (amp <= 0.1) {
-          eligeImagen = 0;
-        } else if (amp >= 0.1){
-          eligeImagen = 1;
-        }
           p[i].dibujarGrafico(grafico[0]);
         } 
       }
@@ -131,7 +132,7 @@ function draw() {
   if (p4[0].posY >= height) {
     capa = 4;
   }
-  image(fondo, 0, 0);
+  
   if (capa == 4) {
     cuadrados.dibujar(haySonido);
   }
