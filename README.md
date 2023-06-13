@@ -1,1 +1,1 @@
-# tecnomultimediados.github.io
+# tecnotp1.github.io
