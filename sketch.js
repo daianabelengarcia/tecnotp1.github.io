@@ -108,7 +108,7 @@ function draw() {
   image(copia, 0, 0, width, height);
 
   volumenAlto = !volumenBajo; //volumen alto es verdadero cuando la otra condicion deja de serlo
-console.log (volumenAlto);
+console.log (amp,volumenAlto);
   /* if (p2[0].posY >= height) {
      capa = 2;
    }
