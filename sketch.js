@@ -82,7 +82,7 @@ function setup() {
     pincelada5.push(new Pincelada());
     pincelada6.push(new Pincelada());
   }
-  /* cuadrados = new Cuadrados(); */
+  cuadrados = new Cuadrados(); 
   capa = 0;
 
 
@@ -224,6 +224,12 @@ function draw() {
     copia7.mask(grafico[6]);
     image(copia7, 0, 0, width, height);
 
+  }
+  if (pincelada6[0].posY >= height) {
+    capa = 7;
+  }
+  if (capa == 7) {
+    cuadrados.dibujar(haySonido);
   }
 
   subioelVolumen = amp;

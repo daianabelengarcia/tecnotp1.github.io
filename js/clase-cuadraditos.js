@@ -1,5 +1,5 @@
-class Cuadrados {
-  constructor() {
+
+  /* constructor() {
     this.img1 = loadImage("../img/cuadrado-1.png");
     this.img2 = loadImage("../img/cuadrado-1.png");
     this.posx1 = 0;
@@ -22,5 +22,55 @@ class Cuadrados {
     
     image(this.img1, this.posx1, 0, width, height);
     image(this.img2, this.posx2, 0, width, height);
+  } */
+  class Cuadrados {
+    constructor() {
+  
+      this.imagenes = [];
+      this.posX;
+      this.posY;
+      this.cantidadDeImagenes = 25;
+      this.cantidadDeCuadrados = windowHeight;
+      this.cantidadDeCuadradosY = windowHeight;
+      this.distanciaCuadradosX = 20;
+      this.distanciaCuadradosY = 40;
+      this.indiceAleatorio = [];
+  
+  
+      for (let i = 0; i < this.cantidadDeImagenes; i++) {
+        this.imagenes[i] = loadImage('img/' + i + '.png');
+    }
+  
+  
+    
+  
+      for (let i = 0; i < this.cantidadDeCuadrados; i++) {
+          for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
+            this.indiceAleatorio.push(floor(random(this.imagenes.length)));
+          }
+      }
+    }
+    
+    dibujar(sonido) {
+      for (let i = 0; i < this.cantidadDeCuadrados; i++) {
+        for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
+            let x = i * this.distanciaCuadradosX;
+            let y = c * this.distanciaCuadradosY;
+            this.posX= x;
+            this.posY= y;
+  
+            let index = i * this.cantidadDeCuadradosY + c;
+            let indice = this.indiceAleatorio[index];
+  
+            image(this.imagenes[indice], this.posX, this.posY, 20, 35);
+            
+        if(sonido){
+             this.distanciaCuadradosX= random(10,40);
+           }else{
+               this.distanciaCuadradosX= 20;
+            } 
+            
+        }
+    }
+    }
   }
-}
