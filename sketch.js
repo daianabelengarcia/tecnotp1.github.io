@@ -128,7 +128,7 @@ function draw() {
     image(copia, 0, 0, width, height);
   }
 
-  cambiodeColor = true;
+  cambiodeColor = false;
   subioelVolumen = amp;
   if (haySonido) {
     console.log(amp, subioelVolumen, cambiodeColor);
