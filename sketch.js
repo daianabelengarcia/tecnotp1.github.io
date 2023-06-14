@@ -150,13 +150,13 @@ function draw() {
       }
     }
 
-    let copia4 = colores[eligeImagen].get();
-    copia4.mask(grafico[3]);
-    image(copia4, 0, 0, width, height);
+    copia = colores[eligeImagen].get();
+    copia.mask(grafico[3]);
+    image(copia, 0, 0, width, height);
 
   }
 
-  if (pincelada3[0].posY >= height) {
+  /* if (pincelada3[0].posY >= height) {
     capa = 4;
   }
 
@@ -167,9 +167,9 @@ function draw() {
       }
     }
 
-    let copia5 = marrones[eligeImagen].get();
-    copia5.mask(grafico[4]);
-    image(copia5, 0, 0, width, height);
+    copia = marrones[eligeImagen].get();
+    copia.mask(grafico[4]);
+    image(copia, 0, 0, width, height);
 
   }
 
@@ -184,9 +184,9 @@ function draw() {
       }
     }
 
-    let copia6 = naranjas[eligeImagen].get();
-    copia6.mask(grafico[5]);
-    image(copia6, 0, 0, width, height);
+    copia = naranjas[eligeImagen].get();
+    copia.mask(grafico[5]);
+    image(copia, 0, 0, width, height);
 
   }
 
@@ -201,11 +201,11 @@ function draw() {
       }
     }
 
-    let copia7 = marrones[eligeImagen].get();
-    copia7.mask(grafico[6]);
-    image(copia7, 0, 0, width, height);
+    copia = marrones[eligeImagen].get();
+    copia.mask(grafico[6]);
+    image(copia, 0, 0, width, height);
 
-  }
+  } */
 
   subioelVolumen = amp;
 
