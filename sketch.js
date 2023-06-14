@@ -12,8 +12,7 @@ let mic;
 
 let amp;
 let haySonido = false;
-let volumenAlto = false;
-let volumenBajo = false;
+let subioelVolumen;
 
 
 let p = [];
@@ -52,21 +51,7 @@ function setup() {
 
   capa = 0;
 
-  if (capa == 0) { //elige la imagen que se muestra en la mascara de recorte 
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 1) {
-    eligeImagen = floor(random(0, 5));
-  } else if (capa == 2) {
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 3) {
-    eligeImagen = floor(random(0, 7));
-  } else if (capa == 4) {
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 5) {
-    eligeImagen = floor(random(0, 4));
-  } else if (capa == 6) {
-    eligeImagen = floor(random(0, 8));
-  }
+  cambiaColor();
 
 }
 
@@ -90,11 +75,12 @@ function draw() {
   amp = mic.getLevel();
 
   haySonido = amp > AMP_MIN;
-  volumenBajo = amp < 0.15; //el volumen es bajo mientras no supere esa amplitud
-  let subioelVolumen = !volumenBajo && volumenAlto; //sube el volumen si hay sonido y el volumen es alto
-  if (subioelVolumen) {
+  
+  
+  if (amp > subioelVolumen) {
     cambiaColor();
   }
+
   if (capa == 0) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
@@ -129,7 +115,7 @@ function draw() {
 
 
 
-  volumenAlto = !volumenBajo; //volumen alto es verdadero cuando la otra condicion deja de serlo
+  subioelVolumen = amp;
   if (haySonido) {
     console.log(amp, volumenAlto);
   }
