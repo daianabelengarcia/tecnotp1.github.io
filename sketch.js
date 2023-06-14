@@ -116,7 +116,7 @@ function draw() {
 
 
 
-  if (p[0].posY >= height) {
+  if (pincelada[0].posY >= height) {
     capa = 1;
   }
 
@@ -135,7 +135,7 @@ function draw() {
 
   
 
-  if (p2[0].posY >= height) {
+  if (pincelada2[0].posY >= height) {
     capa = 2;
   }
 
