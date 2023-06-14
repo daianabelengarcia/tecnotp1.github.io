@@ -142,7 +142,7 @@ function draw() {
   if (capa == 2) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        pincelada2[i].dibujarGrafico(grafico[2]);
+        pincelada3[i].dibujarGrafico(grafico[2]);
       }
     }
 
