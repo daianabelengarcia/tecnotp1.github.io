@@ -119,7 +119,7 @@ function draw() {
 
 
 
-  if (pincelada0[0].posY >= height) {
+  /* if (pincelada0[0].posY >= height) {
     capa = 1;
   }
 
@@ -221,7 +221,7 @@ function draw() {
     copia7.mask(grafico[6]);
     image(copia7, 0, 0, width, height);
 
-  }
+  } */
 
   subioelVolumen = amp;
 
