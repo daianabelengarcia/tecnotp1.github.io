@@ -97,7 +97,6 @@ function draw() {
   }
 
   if (capa == 0) {
-    cambiodeColor = false;
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         p[i].dibujarGrafico(grafico[0]);
@@ -118,7 +117,6 @@ function draw() {
 
 
   if (capa == 1) {
-    cambiodeColor = false;
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         p2[i].dibujarGrafico2(grafico[1]);
