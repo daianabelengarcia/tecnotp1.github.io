@@ -42,7 +42,7 @@ function setup() {
   }
 
   for (let i = 0; i < 10; i++) {
-    
+
     p.push(new Pincelada());
     p2.push(new Pincelada());
     /*p3.push(new Pincelada());
@@ -53,19 +53,19 @@ function setup() {
   capa = 0;
 
   if (capa == 0) { //elige la imagen que se muestra en la mascara de recorte 
-    eligeImagen = floor(random(0,8));
+    eligeImagen = floor(random(0, 8));
   } else if (capa == 1) {
-    eligeImagen = floor(random(0,5));
-  } else if (capa == 2) { 
-    eligeImagen = floor(random(0,8));
+    eligeImagen = floor(random(0, 5));
+  } else if (capa == 2) {
+    eligeImagen = floor(random(0, 8));
   } else if (capa == 3) {
-    eligeImagen = floor(random(0,7));
-  } else if (capa==4){
-    eligeImagen = floor(random(0,8));
-  }else if (capa == 5) {
-    eligeImagen = floor(random(0,4));
-  } else if (capa==6){
-    eligeImagen = floor(random(0,8));
+    eligeImagen = floor(random(0, 7));
+  } else if (capa == 4) {
+    eligeImagen = floor(random(0, 8));
+  } else if (capa == 5) {
+    eligeImagen = floor(random(0, 4));
+  } else if (capa == 6) {
+    eligeImagen = floor(random(0, 8));
   }
 
 }
@@ -74,14 +74,14 @@ function preload() {
   for (let i = 0; i < 8; i++) {
     marrones[i] = loadImage('img/marron-' + i + '.jpg');
   }
-  for (let i = 0; i <5; i++) {
-    amarillos[i] = loadImage('img/amarillo-'+i+'.jpg');
+  for (let i = 0; i < 5; i++) {
+    amarillos[i] = loadImage('img/amarillo-' + i + '.jpg');
   }
-  for (let i = 0; i <4; i++) {
-    naranjas[i] = loadImage('img/naranja-'+i+'.jpg');
+  for (let i = 0; i < 4; i++) {
+    naranjas[i] = loadImage('img/naranja-' + i + '.jpg');
   }
-  for (let i = 0; i <7; i++) {
-    colores[i] = loadImage('img/color-'+i+'.jpg');
+  for (let i = 0; i < 7; i++) {
+    colores[i] = loadImage('img/color-' + i + '.jpg');
   }
 }
 
@@ -92,23 +92,9 @@ function draw() {
   haySonido = amp > AMP_MIN;
   volumenBajo = amp < 0.15; //el volumen es bajo mientras no supere esa amplitud
   let subioelVolumen = !volumenBajo && volumenAlto; //sube el volumen si hay sonido y el volumen es alto
-
-  if (capa == 0 && subioelVolumen) { //elige la imagen que se muestra en la mascara de recorte dependiendo el volumen del sonido
-    eligeImagen = floor(random(0,8));
-  } else if (capa == 1 && subioelVolumen) {
-    eligeImagen = floor(random(0,5));
-  } else if (capa == 2 && subioelVolumen) { 
-    eligeImagen = floor(random(0,8));
-  } else if (capa == 3 && subioelVolumen) {
-    eligeImagen = floor(random(0,7));
-  } else if (capa == 4 && subioelVolumen) {
-    eligeImagen = floor(random(0,8));
-  } else if (capa == 5 && subioelVolumen) { 
-    eligeImagen = floor(random(0,4));
-  } else if (capa == 6 && subioelVolumen) {
-    eligeImagen = floor(random(0,8));
+  if (subioelVolumen) {
+    cambiaColor();
   }
-
   if (capa == 0) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
@@ -144,9 +130,9 @@ function draw() {
 
 
   volumenAlto = !volumenBajo; //volumen alto es verdadero cuando la otra condicion deja de serlo
- if (haySonido) {
-  console.log (amp,volumenAlto);
- }
+  if (haySonido) {
+    console.log(amp, volumenAlto);
+  }
 
   /* if (p2[0].posY >= height) {
      capa = 2;
@@ -199,4 +185,21 @@ function imprimirData() {
   text(texto, 10, 20);
   pop();
 
+}
+function cambiaColor() {
+  if (capa == 0) {
+    eligeImagen = floor(random(0, 8));
+  } else if (capa == 1) {
+    eligeImagen = floor(random(0, 5));
+  } else if (capa == 2) {
+    eligeImagen = floor(random(0, 8));
+  } else if (capa == 3) {
+    eligeImagen = floor(random(0, 7));
+  } else if (capa == 4) {
+    eligeImagen = floor(random(0, 8));
+  } else if (capa == 5) {
+    eligeImagen = floor(random(0, 4));
+  } else if (capa == 6) {
+    eligeImagen = floor(random(0, 8));
+  }
 }

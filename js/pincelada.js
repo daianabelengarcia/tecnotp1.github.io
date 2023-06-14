@@ -18,7 +18,7 @@ class Pincelada {
     grafico.noStroke();
     grafico.ellipse(this.x, this.posY, this.tam, this.tam);
 
-    this.counter += random(0.03,0.05);
+    this.counter += 0.05;
   }
 
   dibujarGrafico2(grafico) {
