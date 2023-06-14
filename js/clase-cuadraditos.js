@@ -62,7 +62,7 @@
             let index = i * this.cantidadDeCuadradosY + c;
             let indice = this.indiceAleatorio[index];
   
-            image(this.imagenes[indice], this.posX, this.posY, 20, 35);
+            image(this.imagenes[indice], this.posX, this.posY, 25, 40);
             
         if(sonido){
              this.distanciaCuadradosX= random(10,40);
