@@ -169,9 +169,9 @@ function draw() {
       }
     }
 
-    copia = colores[eligeImagen].get();
-    copia.mask(grafico[3]);
-    image(copia, 0, 0, width, height);
+    let copia3 = colores[eligeImagen].get();
+    copia3.mask(grafico[3]);
+    image(copia3, 0, 0, width, height);
 
   }
 
@@ -203,9 +203,9 @@ function draw() {
       }
     }
 
-    copia = naranjas[eligeImagen].get();
-    copia.mask(grafico[5]);
-    image(copia, 0, 0, width, height);
+    let copia4 = naranjas[eligeImagen].get();
+    copia4.mask(grafico[5]);
+    image(copia4, 0, 0, width, height);
 
   }
 
