@@ -53,7 +53,7 @@ function setup() {
     grafico[i] = createGraphics(width, height);
   }
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 15; i++) {
 
     pincelada0.push(new Pincelada());
     pincelada1.push(new Pincelada());
@@ -98,7 +98,7 @@ function draw() {
     cambiaColor();
   }
   if (capa == 0) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 15; i++) {
       if (haySonido) {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
@@ -116,7 +116,7 @@ function draw() {
 
 
   if (capa == 1) {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 15; i++) {
       if (haySonido) {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
