@@ -229,18 +229,18 @@ function imprimirData() {
 
 function cambiaColor() {
   if (capa == 0) {
-    eligeImagen = floor(random(0, 9));
+    eligeImagen = floor(random(0, 8));
   } else if (capa == 1) {
-    eligeImagen = floor(random(0, 6));
+    eligeImagen = floor(random(0, 5));
   } else if (capa == 2) {
-    eligeImagen = floor(random(0, 9));
+    eligeImagen = floor(random(0, 8));
   } else if (capa == 3) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 7));
   } else if (capa == 4) {
-    eligeImagen = floor(random(0, 9));
-  } else if (capa == 5) {
     eligeImagen = floor(random(0, 8));
+  } else if (capa == 5) {
+    eligeImagen = floor(random(0, 7));
   } else if (capa == 6) {
-    eligeImagen = floor(random(0, 9));
+    eligeImagen = floor(random(0, 8));
   }
 }
