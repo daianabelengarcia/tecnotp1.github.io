@@ -59,21 +59,7 @@ function setup() {
   /* cuadrados = new Cuadrados(); */
 capa = 0;
 
-  if (capa == 0) {
-    eligeImagen = floor(random(0, 9));
-  } else if (capa == 1) {
-    eligeImagen = floor(random(0, 6));
-  } else if (capa == 2) {
-    eligeImagen = floor(random(0, 9));
-  } else if (capa == 3) {
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 4) {
-    eligeImagen = floor(random(0, 9));
-  } else if (capa == 5) {
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 6) {
-    eligeImagen = floor(random(0, 9));
-  }
+cambiaColor();
   
 
 }
@@ -117,7 +103,7 @@ if (capa ==0) {
 
   
 
-  if (pincelada0[0].posY >= height) {
+  /* if (pincelada0[0].posY >= height) {
     capa = 1;
   }
 
@@ -132,7 +118,7 @@ if (capa ==0) {
   copia2.mask(grafico[1]);
   image(copia2, 0, 0, width, height);
   }
-
+ */
   
 
 
