@@ -32,8 +32,8 @@
       this.cantidadDeImagenes = 10;
       this.cantidadDeCuadrados = windowHeight;
       this.cantidadDeCuadradosY = windowHeight;
-      this.distanciaCuadradosX = 20;
-      this.distanciaCuadradosY = 40;
+      this.distanciaCuadradosX = 25;
+      this.distanciaCuadradosY = 45;
       this.indiceAleatorio = [];
   
   
