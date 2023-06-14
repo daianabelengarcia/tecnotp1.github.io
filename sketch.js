@@ -22,7 +22,10 @@ let p3 = [];
 let p4 = [];
 let cuadrados;
 let capa;
-let imagen = [];
+let marrones = [];
+let naranjas = [];
+let amarillos = [];
+let colores = [];
 let grafico = [];
 let eligeImagen;
 
@@ -49,14 +52,37 @@ function setup() {
 
   capa = 0;
 
+  if (capa == 0) { //elige la imagen que se muestra en la mascara de recorte 
+    eligeImagen = floor(random(0,8));
+  } else if (capa == 1) {
+    eligeImagen = floor(random(0,5));
+  } else if (capa == 2) { 
+    eligeImagen = floor(random(0,8));
+  } else if (capa == 3) {
+    eligeImagen = floor(random(0,7));
+  } else if (capa==4){
+    eligeImagen = floor(random(0,8));
+  }else if (capa == 5) {
+    eligeImagen = floor(random(0,4));
+  } else if (capa==6){
+    eligeImagen = floor(random(0,8));
+  }
 
 }
 
 function preload() {
   for (let i = 0; i < 8; i++) {
-    imagen[i] = loadImage('img/marron-' + i + '.jpg');
+    marrones[i] = loadImage('img/marron-' + i + '.jpg');
   }
-
+  for (let i = 0; i <5; i++) {
+    amarillos[i] = loadImage('img/amarillo-'+i+'.jpg');
+  }
+  for (let i = 0; i <4; i++) {
+    naranjas[i] = loadImage('img/naranja-'+i+'.jpg');
+  }
+  for (let i = 0; i <7; i++) {
+    colores[i] = loadImage('img/color-'+i+'.jpg');
+  }
 }
 
 function draw() {
@@ -65,15 +91,21 @@ function draw() {
 
   haySonido = amp > AMP_MIN;
   volumenBajo = amp < 0.15; //el volumen es bajo mientras no supere esa amplitud
-  let subioelVolumen = haySonido && volumenAlto; //sube el volumen si hay sonido y el volumen es alto
+  let subioelVolumen = !volumenBajo && volumenAlto; //sube el volumen si hay sonido y el volumen es alto
 
-  if (capa == 0 && volumenBajo) { //elige la imagen que se muestra en la mascara de recorte dependiendo el volumen del sonido
-    eligeImagen = floor(random(0,8));
-  } else if (capa == 0 && subioelVolumen) {
-    eligeImagen = floor(random(0,8));
-  } else if (capa == 1 && volumenBajo) { 
+  if (capa == 0 && subioelVolumen) { //elige la imagen que se muestra en la mascara de recorte dependiendo el volumen del sonido
     eligeImagen = floor(random(0,8));
   } else if (capa == 1 && subioelVolumen) {
+    eligeImagen = floor(random(0,5));
+  } else if (capa == 2 && subioelVolumen) { 
+    eligeImagen = floor(random(0,8));
+  } else if (capa == 3 && subioelVolumen) {
+    eligeImagen = floor(random(0,7));
+  } else if (capa == 4 && subioelVolumen) {
+    eligeImagen = floor(random(0,8));
+  } else if (capa == 5 && subioelVolumen) { 
+    eligeImagen = floor(random(0,4));
+  } else if (capa == 6 && subioelVolumen) {
     eligeImagen = floor(random(0,8));
   }
 
@@ -84,7 +116,7 @@ function draw() {
       }
     }
 
-    let copia = imagen[eligeImagen].get();
+    let copia = marrones[eligeImagen].get();
     copia.mask(grafico[0]);
     image(copia, 0, 0, width, height);
   }
@@ -104,7 +136,7 @@ function draw() {
       }
     }
 
-    copia = imagen[eligeImagen].get();
+    copia = amarillos[eligeImagen].get();
     copia.mask(grafico[1]);
     image(copia, 0, 0, width, height);
   }
