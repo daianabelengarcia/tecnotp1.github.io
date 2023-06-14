@@ -32,7 +32,7 @@
       this.cantidadDeImagenes = 10;
       this.cantidadDeCuadrados = windowHeight;
       this.cantidadDeCuadradosY = windowHeight;
-      this.distanciaCuadradosX = random(25,30);
+      this.distanciaCuadradosX = 30;
       this.distanciaCuadradosY = 45;
       this.indiceAleatorio = [];
   
@@ -54,7 +54,7 @@
     dibujar(sonido) {
       for (let i = 0; i < this.cantidadDeCuadrados; i++) {
         for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-            let x = i * this.distanciaCuadradosX;
+            let x = i * this.distanciaCuadradosX + random(0,10);
             let y = c * this.distanciaCuadradosY;
             this.posX= x;
             this.posY= y;
