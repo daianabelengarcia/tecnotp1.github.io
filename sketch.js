@@ -57,10 +57,10 @@ function setup() {
     pincelada6.push(new Pincelada());
   }
   /* cuadrados = new Cuadrados(); */
-capa = 0;
+  capa = 0;
 
-cambiaColor();
-  
+  cambiaColor();
+
 
 }
 
@@ -90,20 +90,20 @@ function draw() {
   if (haySonido && diferenciaVolumen > umbral) {
     cambiaColor();
   }
-if (capa ==0) {
+  if (capa == 0) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-   let copia = marrones[eligeImagen].get();
-  copia.mask(grafico[0]);
-  image(copia, 0, 0, width, height);
+    let copia = marrones[eligeImagen].get();
+    copia.mask(grafico[0]);
+    image(copia, 0, 0, width, height);
   }
 
-  
 
- if (pincelada0[0].posY >= height) {
+
+  if (pincelada0[0].posY >= height) {
     capa = 1;
   }
 
@@ -114,12 +114,12 @@ if (capa ==0) {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-  copia = amarillos[eligeImagen].get();
-  copia.mask(grafico[1]);
-  image(copia, 0, 0, width, height);
+    copia = amarillos[eligeImagen].get();
+    copia.mask(grafico[1]);
+    image(copia, 0, 0, width, height);
   }
 
-  
+
 
 
   if (pincelada1[0].posY >= height) {
@@ -139,7 +139,7 @@ if (capa ==0) {
 
   }
 
-  /* if (pincelada2[0].posY >= height) {
+  if (pincelada2[0].posY >= height) {
     capa = 3;
   }
 
@@ -205,7 +205,7 @@ if (capa ==0) {
     copia7.mask(grafico[6]);
     image(copia7, 0, 0, width, height);
 
-  } */
+  }
 
   subioelVolumen = amp;
 
