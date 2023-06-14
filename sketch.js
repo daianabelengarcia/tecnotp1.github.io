@@ -66,7 +66,14 @@ function setup() {
   /* cuadrados = new Cuadrados(); */
   capa = 0;
 
-  cambiaColor();
+
+  colorMarrones = floor(random(0, 8));
+  colorAmarillos = floor(random(0, 5));
+  colorMarrones2 = floor(random(0, 8));
+  colorColores = floor(random(0, 7));
+  colorMarrones3 = floor(random(0, 8));
+  colorNaranjas = floor(random(0, 7));
+  colorMarrones4 = floor(random(0, 8));
 
 
 }
@@ -129,7 +136,7 @@ function draw() {
 
 
 
-   if (pincelada1[0].posY >= height) {
+  if (pincelada1[0].posY >= height) {
     capa = 2;
   }
 
@@ -144,7 +151,7 @@ function draw() {
     copia3.mask(grafico[2]);
     image(copia3, 0, 0, width, height);
 
-  } 
+  }
 
   if (pincelada2[0].posY >= height) {
     capa = 3;
@@ -161,9 +168,9 @@ function draw() {
     copia4.mask(grafico[3]);
     image(copia4, 0, 0, width, height);
 
-  } 
+  }
 
-   if (pincelada3[0].posY >= height) {
+  if (pincelada3[0].posY >= height) {
     capa = 4;
   }
 
@@ -212,7 +219,7 @@ function draw() {
     copia7.mask(grafico[6]);
     image(copia7, 0, 0, width, height);
 
-  } 
+  }
 
   subioelVolumen = amp;
 
@@ -235,14 +242,19 @@ function imprimirData() {
 }
 
 function cambiaColor() {
-  if (capa==0) {
+  if (capa == 0) {
     colorMarrones = floor(random(0, 8));
-  } else if (capa==1){
+  } else if (capa == 1) {
     colorAmarillos = floor(random(0, 5));
-  }
+  } else if (capa == 2) {
     colorMarrones2 = floor(random(0, 8));
+  } else if (capa == 3) {
     colorColores = floor(random(0, 7));
+  } else if (capa == 4) {
     colorMarrones3 = floor(random(0, 8));
-    colorNaranjas = floor(random(0,7));
+  } else if (capa == 5) {
+    colorNaranjas = floor(random(0, 7));
+  } else if (capa == 6) {
     colorMarrones4 = floor(random(0, 8));
+  }
 }
