@@ -13,6 +13,7 @@ let mic;
 let amp;
 let haySonido = false;
 let subioelVolumen;
+let umbral = 0.05;
 
 
 let p = [];
@@ -75,9 +76,9 @@ function draw() {
   amp = mic.getLevel();
 
   haySonido = amp > AMP_MIN;
+  let diferenciaVolumen = amp - subioelVolumen;
   
-  
-  if (amp > subioelVolumen) {
+  if (subioelVolumen > umbral) {
     cambiaColor();
   }
 
