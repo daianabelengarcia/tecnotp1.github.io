@@ -15,13 +15,13 @@ let subioelVolumen;
 let umbral = 0.1;
 
 
-let p = [];
-let p2 = [];
-let p3 = [];
-let p4 = [];
-let p5 = [];
-let p6 = [];
-let p7 = [];
+let pincelada = [];
+let pincelada2 = [];
+let pincelada3 = [];
+let pincelada4 = [];
+let pincelada5 = [];
+let pincelada6 = [];
+let pincelada7 = [];
 let cuadrados;
 let capa;
 let marrones = [];
@@ -45,13 +45,13 @@ function setup() {
 
   for (let i = 0; i < 10; i++) {
 
-    p.push(new Pincelada());
-    p2.push(new Pincelada());
-    p3.push(new Pincelada());
-    p4.push(new Pincelada());
-    p5.push(new Pincelada());
-    p6.push(new Pincelada());
-    p7.push(new Pincelada());
+    pincelada.push(new Pincelada());
+    pincelada2.push(new Pincelada());
+    pincelada3.push(new Pincelada());
+    pincelada4.push(new Pincelada());
+    pincelada5.push(new Pincelada());
+    pincelada6.push(new Pincelada());
+    pincelada7.push(new Pincelada());
   }
   /* cuadrados = new Cuadrados(); */
 
@@ -104,7 +104,7 @@ function draw() {
   if (capa == 0) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        p[i].dibujarGrafico(grafico[0]);
+        pincelada[i].dibujarGrafico(grafico[0]);
       }
     }
 
@@ -124,7 +124,7 @@ function draw() {
   if (capa == 1) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        p2[i].dibujarGrafico2(grafico[1]);
+        pincelada2[i].dibujarGrafico2(grafico[1]);
       }
     }
 
@@ -142,7 +142,7 @@ function draw() {
   if (capa == 2) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        p2[i].dibujarGrafico(grafico[2]);
+        pincelada2[i].dibujarGrafico(grafico[2]);
       }
     }
 
