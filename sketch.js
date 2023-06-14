@@ -136,7 +136,7 @@ function draw() {
 
     copia = amarillos[eligeImagen].get();
     copia.mask(grafico[1]);
-    image(copia, 0, 0, width, height);
+    image(amarillos[eligeImagen], 0, 0, width, height);
   }
 
   
