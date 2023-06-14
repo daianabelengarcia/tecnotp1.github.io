@@ -113,10 +113,11 @@ function draw() {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-
-    let copia = marrones[eligeImagen].get();
+    grafico[0] = marrones[eligeImagen].get();
+    image(grafico[0],0,0,width,height);
+    /* let copia = marrones[eligeImagen].get();
     copia.mask(grafico[0]);
-    image(copia, 0, 0, width, height);
+    image(copia, 0, 0, width, height); */
 
   }
 
