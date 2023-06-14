@@ -29,7 +29,7 @@
       this.imagenes = [];
       this.posX;
       this.posY;
-      this.cantidadDeImagenes = 25;
+      this.cantidadDeImagenes = 15;
       this.cantidadDeCuadrados = windowHeight;
       this.cantidadDeCuadradosY = windowHeight;
       this.distanciaCuadradosX = 20;
