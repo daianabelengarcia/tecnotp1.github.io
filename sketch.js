@@ -13,7 +13,7 @@ let mic;
 let amp;
 let haySonido = false;
 let subioelVolumen;
-let umbral = 0.05;
+let umbral = 0.1;
 
 
 let p = [];
