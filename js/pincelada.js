@@ -6,7 +6,7 @@ class Pincelada {
     this.posX = random(-15,width+15);
     this.posY = 0;
     this.x = 0;
-    this.tam = 30;
+    this.tam = 40;
   }
 
   dibujarGrafico(grafico) {
