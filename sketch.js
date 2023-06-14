@@ -134,9 +134,11 @@ function draw() {
       }
     }
 
-    let copia2 = amarillos[eligeImagen].get();
+    grafico[1] = amarillos[eligeImagen].get();
+    image(grafico[1],0,0,width,height);
+    /* let copia2 = amarillos[eligeImagen].get();
     copia2.mask(grafico[1]);
-    image(copia2, 0, 0, width, height);
+    image(copia2, 0, 0, width, height); */
   }
 
   
