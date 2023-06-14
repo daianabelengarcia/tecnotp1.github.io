@@ -54,7 +54,7 @@
     dibujar(sonido) {
       for (let i = 0; i < this.cantidadDeCuadrados; i++) {
         for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-            let x = i * this.distanciaCuadradosX;
+            let x = i * this.distanciaCuadradosX+50;
             let y = c * this.distanciaCuadradosY;
             this.posX= x;
             this.posY= y;
