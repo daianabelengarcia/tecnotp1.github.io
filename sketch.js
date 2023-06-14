@@ -1,6 +1,6 @@
 //-------CONFIGURACION----
 
-let AMP_MIN = 0.07; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
+let AMP_MIN = 0.05; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
 let IMPRIMIR = false;
 
 
