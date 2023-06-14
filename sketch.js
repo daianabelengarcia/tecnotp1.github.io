@@ -235,8 +235,11 @@ function imprimirData() {
 }
 
 function cambiaColor() {
+  if (capa==0) {
     colorMarrones = floor(random(0, 8));
+  } else if (capa==1){
     colorAmarillos = floor(random(0, 5));
+  }
     colorMarrones2 = floor(random(0, 8));
     colorColores = floor(random(0, 7));
     colorMarrones3 = floor(random(0, 8));
