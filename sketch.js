@@ -144,7 +144,9 @@ function draw() {
 
 
   volumenAlto = !volumenBajo; //volumen alto es verdadero cuando la otra condicion deja de serlo
+ if (haySonido) {
   console.log (amp,volumenAlto);
+ }
 
   /* if (p2[0].posY >= height) {
      capa = 2;
