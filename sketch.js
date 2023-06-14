@@ -32,9 +32,14 @@ let naranjas = [];
 let amarillos = [];
 let colores = [];
 let grafico = [];
+
 let colorMarrones;
 let colorAmarillos;
 let colorMarrones2;
+let colorColores;
+let colorMarrones3;
+let colorNaranjas;
+let colorMarrones4;
 
 
 function setup() {
@@ -116,9 +121,9 @@ function draw() {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-    let copia2 = amarillos[colorAmarillos].get();
-    copia2.mask(grafico[1]);
-    image(copia2, 0, 0, width, height);
+    copia = amarillos[colorAmarillos].get();
+    copia.mask(grafico[1]);
+    image(copia, 0, 0, width, height);
   }
 
 
@@ -135,13 +140,13 @@ function draw() {
       }
     }
 
-    let copia3 = marrones[colorMarrones2].get();
-    copia3.mask(grafico[2]);
-    image(copia3, 0, 0, width, height);
+    copia = marrones[colorMarrones2].get();
+    copia.mask(grafico[2]);
+    image(copia, 0, 0, width, height);
 
   } 
 
- /*  if (pincelada2[0].posY >= height) {
+  if (pincelada2[0].posY >= height) {
     capa = 3;
   }
 
@@ -152,13 +157,13 @@ function draw() {
       }
     }
 
-    copia = colores[eligeImagen].get();
+    copia = colores[colorColores].get();
     copia.mask(grafico[3]);
     image(copia, 0, 0, width, height);
 
-  } */
+  } 
 
-  /* if (pincelada3[0].posY >= height) {
+   if (pincelada3[0].posY >= height) {
     capa = 4;
   }
 
@@ -169,7 +174,7 @@ function draw() {
       }
     }
 
-    copia = marrones[eligeImagen].get();
+    copia = marrones[colorMarrones3].get();
     copia.mask(grafico[4]);
     image(copia, 0, 0, width, height);
 
@@ -186,7 +191,7 @@ function draw() {
       }
     }
 
-    copia = naranjas[eligeImagen].get();
+    copia = naranjas[colorNaranjas].get();
     copia.mask(grafico[5]);
     image(copia, 0, 0, width, height);
 
@@ -203,16 +208,16 @@ function draw() {
       }
     }
 
-    copia = marrones[eligeImagen].get();
+    copia = marrones[colorMarrones4].get();
     copia.mask(grafico[6]);
     image(copia, 0, 0, width, height);
 
-  } */
+  } 
 
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, capa, colorMarrones, colorAmarillos);
+    console.log(amp);
   }
 }
 
@@ -233,13 +238,8 @@ function cambiaColor() {
     colorMarrones = floor(random(0, 8));
     colorAmarillos = floor(random(0, 5));
     colorMarrones2 = floor(random(0, 8));
-  /*  else if (capa == 3) {
-    eligeImagen = floor(random(0, 7));
-  } else if (capa == 4) {
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 5) {
-    eligeImagen = floor(random(0, 7));
-  } else if (capa == 6) {
-    eligeImagen = floor(random(0, 8));
-  } */
+    colorColores = floor(random(0, 7));
+    colorMarrones3 = floor(random(0, 8));
+    colorNaranjas = floor(random(0,7));
+    colorMarrones4 = floor(random(0, 8));
 }
