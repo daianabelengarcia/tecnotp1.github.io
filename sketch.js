@@ -34,12 +34,12 @@ let colores = [];
 let grafico = [];
 
 let colorMarrones;
-let colorAmarillos; 
+let colorAmarillos;
 let colorMarrones2;
 let colorColores;
-let colorMarrones3; 
+let colorMarrones3;
 let colorNaranjas;
-let colorMarrones4; 
+let colorMarrones4;
 
 
 function setup() {
@@ -66,13 +66,9 @@ function setup() {
   /* cuadrados = new Cuadrados(); */
   capa = 0;
 
-  colorMarrones = floor(random(0, 8));
-colorAmarillos = floor(random(0, 5));
-colorMarrones2 = floor(random(0, 8));
-colorColores = floor(random(0, 7));
-colorMarrones3 = floor(random(0, 8));
-colorNaranjas = floor(random(0, 7));
-colorMarrones4 = floor(random(0, 8));
+  cambiaColor();
+
+
 }
 
 function preload() {
@@ -98,11 +94,10 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-  
+  if (haySonido && diferenciaVolumen > umbral) {
+    cambiaColor();
+  }
   if (capa == 0) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorMarrones = floor(random(0, 8));
-    }
     for (let i = 0; i < 15; i++) {
       if (haySonido) {
         pincelada0[i].dibujarGrafico(grafico[0]);
@@ -121,9 +116,6 @@ function draw() {
 
 
   if (capa == 1) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorAmarillos = floor(random(0, 5));
-    }
     for (let i = 0; i < 15; i++) {
       if (haySonido) {
         pincelada1[i].dibujarGrafico2(grafico[1]);
@@ -137,14 +129,11 @@ function draw() {
 
 
 
-  if (pincelada1[0].posY >= height) {
+   if (pincelada1[0].posY >= height) {
     capa = 2;
   }
 
   if (capa == 2) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorMarrones2 = floor(random(0, 8));
-    }
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada2[i].dibujarGrafico(grafico[2]);
@@ -155,16 +144,13 @@ function draw() {
     copia3.mask(grafico[2]);
     image(copia3, 0, 0, width, height);
 
-  }
+  } 
 
   if (pincelada2[0].posY >= height) {
     capa = 3;
   }
 
   if (capa == 3) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorColores = floor(random(0, 7));
-    }
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada3[i].dibujarGrafico2(grafico[3]);
@@ -175,16 +161,13 @@ function draw() {
     copia4.mask(grafico[3]);
     image(copia4, 0, 0, width, height);
 
-  }
+  } 
 
-  if (pincelada3[0].posY >= height) {
+   if (pincelada3[0].posY >= height) {
     capa = 4;
   }
 
   if (capa == 4) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorMarrones3 = floor(random(0, 8));
-    }
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada4[i].dibujarGrafico(grafico[4]);
@@ -202,9 +185,6 @@ function draw() {
   }
 
   if (capa == 5) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorNaranjas = floor(random(0,7));
-    }
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada5[i].dibujarGrafico2(grafico[5]);
@@ -222,9 +202,6 @@ function draw() {
   }
 
   if (capa == 6) {
-    if (haySonido && diferenciaVolumen > umbral) {
-      colorMarrones4 = floor(random(0, 8));
-    }
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada6[i].dibujarGrafico(grafico[6]);
@@ -235,7 +212,7 @@ function draw() {
     copia7.mask(grafico[6]);
     image(copia7, 0, 0, width, height);
 
-  }
+  } 
 
   subioelVolumen = amp;
 
@@ -257,3 +234,12 @@ function imprimirData() {
 
 }
 
+function cambiaColor() {
+    colorMarrones = floor(random(0, 8));
+    colorAmarillos = floor(random(0, 5));
+    colorMarrones2 = floor(random(0, 8));
+    colorColores = floor(random(0, 7));
+    colorMarrones3 = floor(random(0, 8));
+    colorNaranjas = floor(random(0,7));
+    colorMarrones4 = floor(random(0, 8));
+}
