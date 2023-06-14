@@ -33,7 +33,7 @@ let amarillos = [];
 let colores = [];
 let grafico = [];
 let eligeImagen;
-let copia;
+
 
 function setup() {
   createCanvas(600, 600);
@@ -110,7 +110,7 @@ function draw() {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-    copia = marrones[eligeImagen].get();
+   let copia = marrones[eligeImagen].get();
   copia.mask(grafico[0]);
   image(copia, 0, 0, width, height);
 
