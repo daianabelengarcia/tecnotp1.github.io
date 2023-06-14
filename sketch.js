@@ -118,7 +118,7 @@ function draw() {
 
   subioelVolumen = amp;
   if (haySonido) {
-    console.log(amp);
+    console.log(amp, subioelVolumen);
   }
 
   /* if (p2[0].posY >= height) {
