@@ -26,6 +26,7 @@ let pincelada6 = [];
 let cuadrados;
 
 //-----CAPAS e IMAGENES----
+let lienzo;
 let capa;
 let marrones = [];
 let naranjas = [];
@@ -33,6 +34,7 @@ let amarillos = [];
 let colores = [];
 let grafico = [];
 
+//-----CAMBIO DE COLORES----
 let colorMarrones;
 let colorAmarillos;
 let colorMarrones2;
@@ -41,9 +43,25 @@ let colorMarrones3;
 let colorNaranjas;
 let colorMarrones4;
 
+function preload() {
+  lienzo = loadImage('img/lienzo.jpg');
+  for (let i = 0; i < 8; i++) {
+    marrones[i] = loadImage('img/marron-' + i + '.jpg');
+  }
+  for (let i = 0; i < 5; i++) {
+    amarillos[i] = loadImage('img/amarillo-' + i + '.jpg');
+  }
+  for (let i = 0; i < 7; i++) {
+    naranjas[i] = loadImage('img/naranja-' + i + '.jpg');
+  }
+  for (let i = 0; i < 7; i++) {
+    colores[i] = loadImage('img/color-' + i + '.jpg');
+  }
+}
 
 function setup() {
   createCanvas(600, 600);
+  image(lienzo, 0, 0, width, height);
 
   mic = new p5.AudioIn();
   mic.start();
@@ -78,21 +96,7 @@ function setup() {
 
 }
 
-function preload() {
-  for (let i = 0; i < 8; i++) {
-    marrones[i] = loadImage('img/marron-' + i + '.jpg');
-  }
-  for (let i = 0; i < 5; i++) {
-    amarillos[i] = loadImage('img/amarillo-' + i + '.jpg');
-  }
-  for (let i = 0; i < 7; i++) {
-    naranjas[i] = loadImage('img/naranja-' + i + '.jpg');
-  }
-  for (let i = 0; i < 7; i++) {
-    colores[i] = loadImage('img/color-' + i + '.jpg');
-  }
 
-}
 
 function draw() {
 
