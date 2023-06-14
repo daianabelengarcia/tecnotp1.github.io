@@ -60,7 +60,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowHeight, windowHeight);
   image(lienzo, 0, 0, width, height);
 
   mic = new p5.AudioIn();
