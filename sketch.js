@@ -104,7 +104,7 @@ function draw() {
   if (haySonido && diferenciaVolumen > umbral) {
     cambiaColor();
   }
-
+if (capa ==0) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
         pincelada0[i].dibujarGrafico(grafico[0]);
@@ -113,7 +113,7 @@ function draw() {
    let copia = marrones[eligeImagen].get();
   copia.mask(grafico[0]);
   image(copia, 0, 0, width, height);
-
+  }
 
   
 
@@ -128,9 +128,9 @@ function draw() {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-    copia = amarillos[eligeImagen].get();
-  copia.mask(grafico[1]);
-  image(copia, 0, 0, width, height);
+   let copia2 = amarillos[eligeImagen].get();
+  copia2.mask(grafico[1]);
+  image(copia2, 0, 0, width, height);
   }
 
   
