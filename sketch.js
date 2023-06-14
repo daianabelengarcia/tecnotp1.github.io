@@ -32,7 +32,8 @@ let naranjas = [];
 let amarillos = [];
 let colores = [];
 let grafico = [];
-let eligeImagen;
+let colorMarrones;
+let colorAmarillos;
 
 
 function setup() {
@@ -96,7 +97,7 @@ function draw() {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-    let copia = marrones[eligeImagen].get();
+    let copia = marrones[colorMarrones].get();
     copia.mask(grafico[0]);
     image(copia, 0, 0, width, height);
   }
@@ -114,7 +115,7 @@ function draw() {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-    let copia2 = amarillos[eligeImagen].get();
+    let copia2 = amarillos[colorAmarillos].get();
     copia2.mask(grafico[1]);
     image(copia2, 0, 0, width, height);
   }
@@ -133,7 +134,7 @@ function draw() {
       }
     }
 
-    let copia3 = marrones[eligeImagen].get();
+    let copia3 = marrones[colorMarrones].get();
     copia3.mask(grafico[2]);
     image(copia3, 0, 0, width, height);
 
@@ -229,12 +230,12 @@ function imprimirData() {
 
 function cambiaColor() {
   if (capa == 0) {
-    eligeImagen = floor(random(0, 8));
+    colorMarrones = floor(random(0, 8));
   } else if (capa == 1) {
-    eligeImagen = floor(random(0, 5));
+    colorAmarillos = floor(random(0, 5));
   } else if (capa == 2) {
-    eligeImagen = floor(random(0, 8));
-  } else if (capa == 3) {
+    colorMarrones = floor(random(0, 8));
+  }/*  else if (capa == 3) {
     eligeImagen = floor(random(0, 7));
   } else if (capa == 4) {
     eligeImagen = floor(random(0, 8));
@@ -242,5 +243,5 @@ function cambiaColor() {
     eligeImagen = floor(random(0, 7));
   } else if (capa == 6) {
     eligeImagen = floor(random(0, 8));
-  }
+  } */
 }
