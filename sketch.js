@@ -14,6 +14,7 @@ let amp;
 let haySonido = false;
 let subioelVolumen;
 let umbral = 0.1;
+let cambiodeColor = false;
 
 
 let p = [];
@@ -91,8 +92,8 @@ function draw() {
 
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
-  
-  if (haySonido && subioelVolumen > umbral) {
+
+  if (haySonido && subioelVolumen > umbral && !cambiodeColor) {
     cambiaColor();
   }
 
@@ -129,7 +130,7 @@ function draw() {
   }
 
 
-
+  cambiodeColor = true;
   subioelVolumen = amp;
   if (haySonido) {
     console.log(amp, subioelVolumen);
