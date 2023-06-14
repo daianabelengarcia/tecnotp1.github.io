@@ -3,7 +3,6 @@
 let AMP_MIN = 0.07; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
 let IMPRIMIR = false;
 
-let AMP_MAX = 0.2;
 
 //-----ENTRADA DE AUDIO----
 let mic;
