@@ -122,7 +122,7 @@ function draw() {
 
 
 
-  if (pincelada1[0].posY >= height) {
+/*   if (pincelada1[0].posY >= height) {
     capa = 2;
   }
 
@@ -137,9 +137,9 @@ function draw() {
     copia.mask(grafico[2]);
     image(copia, 0, 0, width, height);
 
-  }
+  } */
 
-  if (pincelada2[0].posY >= height) {
+ /*  if (pincelada2[0].posY >= height) {
     capa = 3;
   }
 
@@ -154,7 +154,7 @@ function draw() {
     copia.mask(grafico[3]);
     image(copia, 0, 0, width, height);
 
-  }
+  } */
 
   /* if (pincelada3[0].posY >= height) {
     capa = 4;
