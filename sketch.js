@@ -36,14 +36,10 @@ let eligeImagen;
 
 function setup() {
   createCanvas(600, 600);
-
-  try {
+  
     mic.start();
     userStartAudio();
-  } catch (error) {
-    console.error('Error al iniciar el audio:', error);
-  }
-  
+
   userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
 
   for (let i = 0; i < 7; i++) {
