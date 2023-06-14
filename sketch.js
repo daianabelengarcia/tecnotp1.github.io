@@ -13,13 +13,15 @@ let amp;
 let haySonido = false;
 let subioelVolumen;
 let umbral = 0.1;
-let cambiodeColor = false;
 
 
 let p = [];
 let p2 = [];
 let p3 = [];
 let p4 = [];
+let p5 = [];
+let p6 = [];
+let p7 = [];
 let cuadrados;
 let capa;
 let marrones = [];
@@ -45,8 +47,11 @@ function setup() {
 
     p.push(new Pincelada());
     p2.push(new Pincelada());
-    /*p3.push(new Pincelada());
-    p4.push(new Pincelada());  */
+    p3.push(new Pincelada());
+    p4.push(new Pincelada());
+    p5.push(new Pincelada());
+    p6.push(new Pincelada());
+    p7.push(new Pincelada());
   }
   /* cuadrados = new Cuadrados(); */
 
@@ -128,10 +133,23 @@ function draw() {
     image(copia, 0, 0, width, height);
   }
 
-  cambiodeColor = true;
-  subioelVolumen = amp;
-  if (haySonido) {
-    console.log(amp, subioelVolumen, cambiodeColor);
+  
+
+  if (p2[0].posY >= height) {
+    capa = 2;
+  }
+
+  if (capa == 2) {
+    for (let i = 0; i < 10; i++) {
+      if (haySonido) {
+        p2[i].dibujarGrafico(grafico[2]);
+      }
+    }
+
+    let copia = marrones[eligeImagen].get();
+    copia.mask(grafico[2]);
+    image(copia, 0, 0, width, height);
+
   }
 
   /* if (p2[0].posY >= height) {
@@ -172,6 +190,11 @@ function draw() {
    if (IMPRIMIR) {
      imprimirData();
    } */
+   subioelVolumen = amp;
+
+  if (haySonido) {
+    console.log (amp);
+  }
 }
 
 function imprimirData() {
