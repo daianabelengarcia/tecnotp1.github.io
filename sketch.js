@@ -53,8 +53,8 @@ function setup() {
 }
 
 function preload() {
-  for (let i = 0; i < 4; i++) {
-    imagen[i] = loadImage('img/color-' + i + '.jpg');
+  for (let i = 0; i < 8; i++) {
+    imagen[i] = loadImage('img/marron-' + i + '.jpg');
   }
 
 }
@@ -68,13 +68,13 @@ function draw() {
   let subioelVolumen = haySonido && volumenAlto; //sube el volumen si hay sonido y el volumen es alto
 
   if (capa == 0 && volumenBajo) { //elige la imagen que se muestra en la mascara de recorte dependiendo el volumen del sonido
-    eligeImagen = 0;
+    eligeImagen = floor(random(0,8));
   } else if (capa == 0 && subioelVolumen) {
-    eligeImagen = 1;
+    eligeImagen = floor(random(0,8));
   } else if (capa == 1 && volumenBajo) { 
-    eligeImagen = 2;
+    eligeImagen = floor(random(0,8));
   } else if (capa == 1 && subioelVolumen) {
-    eligeImagen = 3;
+    eligeImagen = floor(random(0,8));
   }
 
   if (capa == 0) {
