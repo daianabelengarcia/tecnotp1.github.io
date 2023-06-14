@@ -92,7 +92,7 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-  if (haySonido && subioelVolumen > umbral && !cambiodeColor) {
+  if (haySonido && subioelVolumen > umbral && cambiodeColor) {
     cambiaColor();
   }
 
