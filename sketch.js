@@ -61,9 +61,7 @@ function setup() {
   capa = 0;
 
 
-  cambiaColor();
-
-  /* if (capa == 0) {
+  if (capa == 0) {
     eligeImagen = floor(random(0, 9));
   } else if (capa == 1) {
     eligeImagen = floor(random(0, 6));
@@ -77,7 +75,7 @@ function setup() {
     eligeImagen = floor(random(0, 8));
   } else if (capa == 6) {
     eligeImagen = floor(random(0, 9));
-  } */
+  }
 
 }
 
@@ -113,10 +111,10 @@ function draw() {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-    
+
     let copia = marrones[eligeImagen].get();
     copia.mask(grafico[0]);
-    image(copia, 0, 0, width, height); 
+    image(copia, 0, 0, width, height);
 
   }
 
@@ -136,10 +134,10 @@ function draw() {
 
     copia = amarillos[eligeImagen].get();
     copia.mask(grafico[1]);
-    image(copia, 0, 0, width, height); 
+    image(copia, 0, 0, width, height);
   }
 
-  
+
 
   if (pincelada1[0].posY >= height) {
     capa = 2;
@@ -226,10 +224,10 @@ function draw() {
 
   }
 
-   subioelVolumen = amp;
+  subioelVolumen = amp;
 
   if (haySonido) {
-    console.log (amp);
+    console.log(amp);
   }
 }
 
