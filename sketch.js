@@ -33,13 +33,13 @@ let amarillos = [];
 let colores = [];
 let grafico = [];
 
-let colorMarrones = floor(random(0, 8));
-let colorAmarillos = floor(random(0, 5));
-let colorMarrones2 = floor(random(0, 8));
-let colorColores = floor(random(0, 7));
-let colorMarrones3 = floor(random(0, 8));
-let colorNaranjas = floor(random(0, 7));
-let colorMarrones4 = floor(random(0, 8));
+let colorMarrones;
+let colorAmarillos; 
+let colorMarrones2;
+let colorColores;
+let colorMarrones3; 
+let colorNaranjas;
+let colorMarrones4; 
 
 
 function setup() {
@@ -65,6 +65,14 @@ function setup() {
   }
   /* cuadrados = new Cuadrados(); */
   capa = 0;
+
+  colorMarrones = floor(random(0, 8));
+colorAmarillos = floor(random(0, 5));
+colorMarrones2 = floor(random(0, 8));
+colorColores = floor(random(0, 7));
+colorMarrones3 = floor(random(0, 8));
+colorNaranjas = floor(random(0, 7));
+colorMarrones4 = floor(random(0, 8));
 }
 
 function preload() {
