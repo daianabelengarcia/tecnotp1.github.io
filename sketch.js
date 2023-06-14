@@ -14,15 +14,18 @@ let haySonido = false;
 let subioelVolumen;
 let umbral = 0.1;
 
-
-let pincelada = [];
+//-----PINCELADAS----
+let pincelada0 = [];
+let pincelada1 = [];
 let pincelada2 = [];
 let pincelada3 = [];
 let pincelada4 = [];
 let pincelada5 = [];
 let pincelada6 = [];
-let pincelada7 = [];
+
 let cuadrados;
+
+//-----CAPAS e IMAGENES----
 let capa;
 let marrones = [];
 let naranjas = [];
@@ -45,19 +48,22 @@ function setup() {
 
   for (let i = 0; i < 10; i++) {
 
-    pincelada.push(new Pincelada());
+    pincelada0.push(new Pincelada());
+    pincelada1.push(new Pincelada());
     pincelada2.push(new Pincelada());
     pincelada3.push(new Pincelada());
     pincelada4.push(new Pincelada());
     pincelada5.push(new Pincelada());
     pincelada6.push(new Pincelada());
-    pincelada7.push(new Pincelada());
   }
   /* cuadrados = new Cuadrados(); */
 
   capa = 0;
 
-  if (capa == 0) {
+
+  cambiaColor();
+  
+  /* if (capa == 0) {
     eligeImagen = floor(random(0, 8));
   } else if (capa == 1) {
     eligeImagen = floor(random(0, 5));
@@ -71,7 +77,7 @@ function setup() {
     eligeImagen = floor(random(0, 4));
   } else if (capa == 6) {
     eligeImagen = floor(random(0, 8));
-  }
+  } */
 
 }
 
@@ -104,7 +110,7 @@ function draw() {
   if (capa == 0) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        pincelada[i].dibujarGrafico(grafico[0]);
+        pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
 
@@ -116,7 +122,7 @@ function draw() {
 
 
 
-  if (pincelada[0].posY >= height) {
+  if (pincelada0[0].posY >= height) {
     capa = 1;
   }
 
@@ -124,7 +130,7 @@ function draw() {
   if (capa == 1) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        pincelada2[i].dibujarGrafico2(grafico[1]);
+        pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
 
@@ -135,14 +141,14 @@ function draw() {
 
   
 
-  if (pincelada2[0].posY >= height) {
+  if (pincelada1[0].posY >= height) {
     capa = 2;
   }
 
   if (capa == 2) {
     for (let i = 0; i < 10; i++) {
       if (haySonido) {
-        pincelada3[i].dibujarGrafico(grafico[2]);
+        pincelada2[i].dibujarGrafico(grafico[2]);
       }
     }
 
@@ -152,44 +158,74 @@ function draw() {
 
   }
 
-  /* if (p2[0].posY >= height) {
-     capa = 2;
-   }
-   if (capa == 2) {
-     for (let i = 0; i < 30; i++) {
-       if (haySonido) {
-         if (i % 2 == 0) {
-           p3[i].dibujar(amp, fondo);
-         } else {
-           p3[i].dibujar2(amp, fondo);
-         }
-       }
-     }
-   }
-   if (p3[0].posY >= height) {
-     capa = 3;
-   }
-   if (capa == 3) {
-     for (let i = 0; i < 30; i++) {
-       if (haySonido) {
-         if (i % 2 == 0) {
-           p4[i].dibujar(amp, fondo);
-         } else {
-           p4[i].dibujar2(amp, fondo);
-         }
-       }
-     }
-   }
-   if (p4[0].posY >= height) {
-     capa = 4;
-   }
-   
-   if (capa == 4) {
-     cuadrados.dibujar(haySonido);
-   }
-   if (IMPRIMIR) {
-     imprimirData();
-   } */
+  if (pincelada2[0].posY >= height) {
+    capa = 3;
+  }
+
+  if (capa == 3) {
+    for (let i = 0; i < 10; i++) {
+      if (haySonido) {
+        pincelada3[i].dibujarGrafico2(grafico[3]);
+      }
+    }
+
+    copia = colores[eligeImagen].get();
+    copia.mask(grafico[3]);
+    image(copia, 0, 0, width, height);
+
+  }
+
+  if (pincelada3[0].posY >= height) {
+    capa = 4;
+  }
+
+  if (capa == 4) {
+    for (let i = 0; i < 10; i++) {
+      if (haySonido) {
+        pincelada4[i].dibujarGrafico(grafico[4]);
+      }
+    }
+
+    copia = marrones[eligeImagen].get();
+    copia.mask(grafico[4]);
+    image(copia, 0, 0, width, height);
+
+  }
+
+  if (pincelada4[0].posY >= height) {
+    capa = 5;
+  }
+
+  if (capa == 5) {
+    for (let i = 0; i < 10; i++) {
+      if (haySonido) {
+        pincelada5[i].dibujarGrafico2(grafico[5]);
+      }
+    }
+
+    copia = amarillos[eligeImagen].get();
+    copia.mask(grafico[5]);
+    image(copia, 0, 0, width, height);
+
+  }
+
+  if (pincelada5[0].posY >= height) {
+    capa = 6;
+  }
+
+  if (capa == 6) {
+    for (let i = 0; i < 10; i++) {
+      if (haySonido) {
+        pincelada6[i].dibujarGrafico(grafico[6]);
+      }
+    }
+
+    copia = marrones[eligeImagen].get();
+    copia.mask(grafico[6]);
+    image(copia, 0, 0, width, height);
+
+  }
+
    subioelVolumen = amp;
 
   if (haySonido) {
@@ -209,6 +245,7 @@ function imprimirData() {
   pop();
 
 }
+
 function cambiaColor() {
   if (capa == 0) {
     eligeImagen = floor(random(0, 8));
