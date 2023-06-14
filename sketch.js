@@ -122,7 +122,7 @@ if (capa ==0) {
   
 
 
-  /* if (pincelada1[0].posY >= height) {
+  if (pincelada1[0].posY >= height) {
     capa = 2;
   }
 
@@ -133,13 +133,13 @@ if (capa ==0) {
       }
     }
 
-    let copia3 = marrones[eligeImagen].get();
-    copia3.mask(grafico[2]);
-    image(copia3, 0, 0, width, height);
+    copia = marrones[eligeImagen].get();
+    copia.mask(grafico[2]);
+    image(copia, 0, 0, width, height);
 
   }
 
-  if (pincelada2[0].posY >= height) {
+  /* if (pincelada2[0].posY >= height) {
     capa = 3;
   }
 
