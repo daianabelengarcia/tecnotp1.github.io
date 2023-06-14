@@ -33,6 +33,7 @@ let amarillos = [];
 let colores = [];
 let grafico = [];
 let eligeImagen;
+let copia;
 
 function setup() {
   createCanvas(600, 600);
@@ -112,12 +113,13 @@ function draw() {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-  }
-
-  let copia = marrones[eligeImagen].get();
+    copia = marrones[eligeImagen].get();
   copia.mask(grafico[0]);
   image(copia, 0, 0, width, height);
 
+  }
+
+  
 
   if (pincelada0[0].posY >= height) {
     capa = 1;
@@ -130,11 +132,12 @@ function draw() {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-  }
-
-  copia = amarillos[eligeImagen].get();
+    copia = amarillos[eligeImagen].get();
   copia.mask(grafico[1]);
   image(copia, 0, 0, width, height);
+  }
+
+  
 
 
   /* if (pincelada1[0].posY >= height) {
