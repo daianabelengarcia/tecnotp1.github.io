@@ -134,7 +134,7 @@ function draw() {
   cambiodeColor = true;
   subioelVolumen = amp;
   if (haySonido) {
-    console.log(amp, subioelVolumen);
+    console.log(amp, subioelVolumen, cambiodeColor);
   }
 
   /* if (p2[0].posY >= height) {
