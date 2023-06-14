@@ -121,9 +121,9 @@ function draw() {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-    copia = amarillos[colorAmarillos].get();
-    copia.mask(grafico[1]);
-    image(copia, 0, 0, width, height);
+    let copia2 = amarillos[colorAmarillos].get();
+    copia2.mask(grafico[1]);
+    image(copia2, 0, 0, width, height);
   }
 
 
@@ -140,9 +140,9 @@ function draw() {
       }
     }
 
-    copia = marrones[colorMarrones2].get();
-    copia.mask(grafico[2]);
-    image(copia, 0, 0, width, height);
+    let copia3 = marrones[colorMarrones2].get();
+    copia3.mask(grafico[2]);
+    image(copia3, 0, 0, width, height);
 
   } 
 
@@ -157,9 +157,9 @@ function draw() {
       }
     }
 
-    copia = colores[colorColores].get();
-    copia.mask(grafico[3]);
-    image(copia, 0, 0, width, height);
+    let copia4 = colores[colorColores].get();
+    copia4.mask(grafico[3]);
+    image(copia4, 0, 0, width, height);
 
   } 
 
@@ -174,9 +174,9 @@ function draw() {
       }
     }
 
-    copia = marrones[colorMarrones3].get();
-    copia.mask(grafico[4]);
-    image(copia, 0, 0, width, height);
+    let copia5 = marrones[colorMarrones3].get();
+    copia5.mask(grafico[4]);
+    image(copia5, 0, 0, width, height);
 
   }
 
@@ -191,9 +191,9 @@ function draw() {
       }
     }
 
-    copia = naranjas[colorNaranjas].get();
-    copia.mask(grafico[5]);
-    image(copia, 0, 0, width, height);
+    let copia6 = naranjas[colorNaranjas].get();
+    copia6.mask(grafico[5]);
+    image(copia6, 0, 0, width, height);
 
   }
 
@@ -208,9 +208,9 @@ function draw() {
       }
     }
 
-    copia = marrones[colorMarrones4].get();
-    copia.mask(grafico[6]);
-    image(copia, 0, 0, width, height);
+    let copia7 = marrones[colorMarrones4].get();
+    copia7.mask(grafico[6]);
+    image(copia7, 0, 0, width, height);
 
   } 
 
