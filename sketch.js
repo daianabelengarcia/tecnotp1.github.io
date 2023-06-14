@@ -134,8 +134,8 @@ function draw() {
       }
     }
 
-    copia = amarillos[eligeImagen].get();
-    copia.mask(grafico[1]);
+    //copia = amarillos[eligeImagen].get();
+    //copia.mask(grafico[1]);
     image(amarillos[eligeImagen], 0, 0, width, height);
   }
 
