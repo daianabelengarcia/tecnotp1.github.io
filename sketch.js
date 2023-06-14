@@ -146,7 +146,7 @@ function draw() {
       }
     }
 
-    let copia = marrones[eligeImagen].get();
+    copia = marrones[eligeImagen].get();
     copia.mask(grafico[2]);
     image(copia, 0, 0, width, height);
 
