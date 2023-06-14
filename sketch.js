@@ -134,9 +134,9 @@ function draw() {
       }
     }
 
-    copia = naranjas[eligeImagen].get();
-    copia.mask(grafico[1]);
-    image(copia, 0, 0, width, height);
+    let copia2 = amarillos[eligeImagen].get();
+    copia2.mask(grafico[1]);
+    image(copia2, 0, 0, width, height);
   }
 
   
@@ -152,9 +152,9 @@ function draw() {
       }
     }
 
-    copia = marrones[eligeImagen].get();
-    copia.mask(grafico[2]);
-    image(copia, 0, 0, width, height);
+    let copia3 = marrones[eligeImagen].get();
+    copia3.mask(grafico[2]);
+    image(copia3, 0, 0, width, height);
 
   }
 
@@ -169,9 +169,9 @@ function draw() {
       }
     }
 
-    copia = colores[eligeImagen].get();
-    copia.mask(grafico[3]);
-    image(copia, 0, 0, width, height);
+    let copia4 = colores[eligeImagen].get();
+    copia4.mask(grafico[3]);
+    image(copia4, 0, 0, width, height);
 
   }
 
@@ -186,9 +186,9 @@ function draw() {
       }
     }
 
-    copia = marrones[eligeImagen].get();
-    copia.mask(grafico[4]);
-    image(copia, 0, 0, width, height);
+    let copia5 = marrones[eligeImagen].get();
+    copia5.mask(grafico[4]);
+    image(copia5, 0, 0, width, height);
 
   }
 
@@ -203,9 +203,9 @@ function draw() {
       }
     }
 
-    copia = naranjas[eligeImagen].get();
-    copia.mask(grafico[5]);
-    image(copia, 0, 0, width, height);
+    let copia6 = naranjas[eligeImagen].get();
+    copia6.mask(grafico[5]);
+    image(copia6, 0, 0, width, height);
 
   }
 
@@ -220,9 +220,9 @@ function draw() {
       }
     }
 
-    copia = marrones[eligeImagen].get();
-    copia.mask(grafico[6]);
-    image(copia, 0, 0, width, height);
+    let copia7 = marrones[eligeImagen].get();
+    copia7.mask(grafico[6]);
+    image(copia7, 0, 0, width, height);
 
   }
 
