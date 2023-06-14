@@ -57,7 +57,7 @@ function setup() {
     pincelada6.push(new Pincelada());
   }
   /* cuadrados = new Cuadrados(); */
-
+capa = 0;
 
   if (capa == 0) {
     eligeImagen = floor(random(0, 9));
