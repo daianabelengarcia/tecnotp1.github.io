@@ -211,7 +211,7 @@ function draw() {
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, capa, eligeImagen);
+    console.log(amp, capa, colorMarrones, colorAmarillos);
   }
 }
 
