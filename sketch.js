@@ -103,7 +103,7 @@ if (capa ==0) {
 
   
 
-  /* if (pincelada0[0].posY >= height) {
+ if (pincelada0[0].posY >= height) {
     capa = 1;
   }
 
@@ -114,11 +114,11 @@ if (capa ==0) {
         pincelada1[i].dibujarGrafico2(grafico[1]);
       }
     }
-   let copia2 = amarillos[eligeImagen].get();
-  copia2.mask(grafico[1]);
-  image(copia2, 0, 0, width, height);
+  copia = amarillos[eligeImagen].get();
+  copia.mask(grafico[1]);
+  image(copia, 0, 0, width, height);
   }
- */
+
   
 
 
