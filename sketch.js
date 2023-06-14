@@ -34,6 +34,7 @@ let colores = [];
 let grafico = [];
 let colorMarrones;
 let colorAmarillos;
+let colorMarrones2;
 
 
 function setup() {
@@ -134,7 +135,7 @@ function draw() {
       }
     }
 
-    let copia3 = marrones[colorMarrones].get();
+    let copia3 = marrones[colorMarrones2].get();
     copia3.mask(grafico[2]);
     image(copia3, 0, 0, width, height);
 
@@ -229,13 +230,10 @@ function imprimirData() {
 }
 
 function cambiaColor() {
-  if (capa == 0) {
     colorMarrones = floor(random(0, 8));
-  } else if (capa == 1) {
     colorAmarillos = floor(random(0, 5));
-  } else if (capa == 2) {
-    colorMarrones = floor(random(0, 8));
-  }/*  else if (capa == 3) {
+    colorMarrones2 = floor(random(0, 8));
+  /*  else if (capa == 3) {
     eligeImagen = floor(random(0, 7));
   } else if (capa == 4) {
     eligeImagen = floor(random(0, 8));
