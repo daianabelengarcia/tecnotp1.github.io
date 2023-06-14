@@ -113,11 +113,10 @@ function draw() {
         pincelada0[i].dibujarGrafico(grafico[0]);
       }
     }
-    grafico[0] = marrones[eligeImagen].get();
-    image(grafico[0],0,0,width,height);
-    /* let copia = marrones[eligeImagen].get();
+    
+    let copia = marrones[eligeImagen].get();
     copia.mask(grafico[0]);
-    image(copia, 0, 0, width, height); */
+    image(copia, 0, 0, width, height); 
 
   }
 
@@ -135,11 +134,9 @@ function draw() {
       }
     }
 
-    grafico[1] = amarillos[eligeImagen].get();
-    image(grafico[1],0,0,width,height);
-    /* let copia2 = amarillos[eligeImagen].get();
-    copia2.mask(grafico[1]);
-    image(copia2, 0, 0, width, height); */
+    copia = amarillos[eligeImagen].get();
+    copia.mask(grafico[1]);
+    image(copia, 0, 0, width, height); 
   }
 
   
