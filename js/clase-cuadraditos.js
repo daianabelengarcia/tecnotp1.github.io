@@ -32,7 +32,7 @@
       this.cantidadDeImagenes = 10;
       this.cantidadDeCuadrados = windowHeight;
       this.cantidadDeCuadradosY = windowHeight;
-      this.distanciaCuadradosX = 40;
+      this.distanciaCuadradosX = 20;
       this.distanciaCuadradosY = 45;
       this.indiceAleatorio = [];
   
@@ -54,7 +54,7 @@
     dibujar(sonido) {
       for (let i = 0; i < this.cantidadDeCuadrados; i++) {
         for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-            let x = i * this.distanciaCuadradosX+50;
+            let x = i * this.distanciaCuadradosX;
             let y = c * this.distanciaCuadradosY;
             this.posX= x;
             this.posY= y;
@@ -67,7 +67,7 @@
         if(sonido){
              this.distanciaCuadradosX= random(10,40);
            }else{
-               this.distanciaCuadradosX= 20;
+               this.distanciaCuadradosX = 30;
             } 
             
         }
