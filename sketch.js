@@ -42,7 +42,7 @@ function setup() {
 
   userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 7; i++) {
     grafico[i] = createGraphics(width, height);
   }
 
@@ -62,21 +62,21 @@ function setup() {
 
 
   cambiaColor();
-  
+
   /* if (capa == 0) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 9));
   } else if (capa == 1) {
-    eligeImagen = floor(random(0, 5));
+    eligeImagen = floor(random(0, 6));
   } else if (capa == 2) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 9));
   } else if (capa == 3) {
-    eligeImagen = floor(random(0, 7));
+    eligeImagen = floor(random(0, 8));
   } else if (capa == 4) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 9));
   } else if (capa == 5) {
-    eligeImagen = floor(random(0, 4));
-  } else if (capa == 6) {
     eligeImagen = floor(random(0, 8));
+  } else if (capa == 6) {
+    eligeImagen = floor(random(0, 9));
   } */
 
 }
@@ -203,7 +203,7 @@ function draw() {
       }
     }
 
-    copia = amarillos[eligeImagen].get();
+    copia = naranjas[eligeImagen].get();
     copia.mask(grafico[5]);
     image(copia, 0, 0, width, height);
 
@@ -248,18 +248,18 @@ function imprimirData() {
 
 function cambiaColor() {
   if (capa == 0) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 9));
   } else if (capa == 1) {
-    eligeImagen = floor(random(0, 5));
+    eligeImagen = floor(random(0, 6));
   } else if (capa == 2) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 9));
   } else if (capa == 3) {
-    eligeImagen = floor(random(0, 7));
+    eligeImagen = floor(random(0, 8));
   } else if (capa == 4) {
-    eligeImagen = floor(random(0, 8));
+    eligeImagen = floor(random(0, 9));
   } else if (capa == 5) {
-    eligeImagen = floor(random(0, 4));
-  } else if (capa == 6) {
     eligeImagen = floor(random(0, 8));
+  } else if (capa == 6) {
+    eligeImagen = floor(random(0, 9));
   }
 }
