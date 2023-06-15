@@ -7,8 +7,8 @@ class Cuadrados {
     this.cantidadDeImagenes = 10;
     this.cantidadDeCuadrados = windowHeight;
     this.cantidadDeCuadradosY = windowHeight;
-    this.distanciaCuadradosX = 10;
-    this.distanciaCuadradosY = 45;
+    this.distanciaCuadradosX = 15;
+    this.distanciaCuadradosY = 35;
     this.indiceAleatorio = [];
 
 
@@ -37,12 +37,12 @@ class Cuadrados {
         let index = i * this.cantidadDeCuadradosY + c;
         let indice = this.indiceAleatorio[index];
 
-        image(this.imagenes[indice], this.posX, this.posY, 10, 25);
+        image(this.imagenes[indice], this.posX, this.posY, 15, 30);
 
         if (sonido) {
           this.distanciaCuadradosX = random(10, 40);
         } else {
-          this.distanciaCuadradosX = 10;
+          this.distanciaCuadradosX = 15;
         }
       }
     }
