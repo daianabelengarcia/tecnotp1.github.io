@@ -8,7 +8,7 @@ class Cuadrados {
     this.cantidadDeCuadrados = 22;
     this.cantidadDeCuadradosY = 47;
     this.distanciaCuadradosX = 10;
-    this.distanciaCuadradosY = 45;
+    this.distanciaCuadradosY = 30;
     this.indiceAleatorio = [];
 
 
