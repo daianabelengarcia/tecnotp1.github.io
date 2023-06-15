@@ -275,6 +275,10 @@ function mousePressed(){
 }
 
 function reiniciar() {
+  for (let i = 0; i < 7; i++) {
+    grafico[i] = createGraphics(width, height);
+  }
+  
   for (let i = 0; i < 15; i++) {
     pincelada0[i].reiniciar();
     pincelada1[i].reiniciar();
@@ -284,41 +288,9 @@ function reiniciar() {
     pincelada5[i].reiniciar();
     pincelada6[i].reiniciar();
   }
-
-  AMP_MIN = 0.05;
   
-  mic.stop();
-
-  image(lienzo, 0, 0, width, height);
+  cuadrados.reiniciar();
   
-  mic = new p5.AudioIn();
-  mic.start();
-  userStartAudio();
-  
-  amp = 0;
-  haySonido = false;
-  subioelVolumen = 0;
-  umbral = 0.1;
-  
-  pincelada0 = [];
-  pincelada1 = [];
-  pincelada2 = [];
-  pincelada3 = [];
-  pincelada4 = [];
-  pincelada5 = [];
-  pincelada6 = [];
-  
-  for (let i = 0; i < 15; i++) {
-    pincelada0.push(new Pincelada());
-    pincelada1.push(new Pincelada());
-    pincelada2.push(new Pincelada());
-    pincelada3.push(new Pincelada());
-    pincelada4.push(new Pincelada());
-    pincelada5.push(new Pincelada());
-    pincelada6.push(new Pincelada());
-  }
-  
-  cuadrados = new Cuadrados();
   capa = 0;
   
   colorMarrones = floor(random(0, 8));
@@ -328,6 +300,4 @@ function reiniciar() {
   colorMarrones3 = floor(random(0, 8));
   colorNaranjas = floor(random(0, 7));
   colorMarrones4 = floor(random(0, 8));
-
-  
 }
