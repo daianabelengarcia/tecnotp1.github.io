@@ -7,8 +7,8 @@ class Cuadrados {
     this.cantidadDeImagenes = 10;
     this.cantidadDeCuadrados = windowHeight;
     this.cantidadDeCuadradosY = windowHeight;
-    this.distanciaCuadradosX = 25;
-    this.distanciaCuadradosY = 35;
+    this.distanciaCuadradosX = 20;
+    this.distanciaCuadradosY = 40;
     this.indiceAleatorio = [];
 
 
@@ -42,7 +42,7 @@ class Cuadrados {
         if (sonido) {
           this.distanciaCuadradosX = random(10, 40);
         } else {
-          this.distanciaCuadradosX = 25;
+          this.distanciaCuadradosX = 20;
         }
       }
     }
