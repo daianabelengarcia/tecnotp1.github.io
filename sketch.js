@@ -284,10 +284,13 @@ function reiniciar() {
     pincelada5[i].reiniciar();
     pincelada6[i].reiniciar();
   }
-  
+
   AMP_MIN = 0.05;
   
   mic.stop();
+
+  image(lienzo, 0, 0, width, height);
+  
   mic = new p5.AudioIn();
   mic.start();
   userStartAudio();
