@@ -275,8 +275,9 @@ function mousePressed(){
 }
 
 function reiniciar() {
+
   for (let i = 0; i < 7; i++) {
-    grafico[i] = createGraphics(width, height);
+    grafico[i].reset();
   }
   
   for (let i = 0; i < 15; i++) {
