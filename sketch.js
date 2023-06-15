@@ -275,6 +275,16 @@ function mousePressed(){
 }
 
 function reiniciar() {
+  for (let i = 0; i < 15; i++) {
+    pincelada0[i].reiniciar();
+    pincelada1[i].reiniciar();
+    pincelada2[i].reiniciar();
+    pincelada3[i].reiniciar();
+    pincelada4[i].reiniciar();
+    pincelada5[i].reiniciar();
+    pincelada6[i].reiniciar();
+  }
+  
   AMP_MIN = 0.05;
   
   mic.stop();
@@ -315,4 +325,6 @@ function reiniciar() {
   colorMarrones3 = floor(random(0, 8));
   colorNaranjas = floor(random(0, 7));
   colorMarrones4 = floor(random(0, 8));
+
+  
 }
