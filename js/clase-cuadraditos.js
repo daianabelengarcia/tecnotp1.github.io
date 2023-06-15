@@ -41,8 +41,9 @@ class Cuadrados {
 
         if (sonido) {
           this.distanciaCuadradosX = random(10, 40);
+        } else {
+          this.distanciaCuadradosX = 30;
         }
-
       }
     }
   }
