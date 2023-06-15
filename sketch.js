@@ -232,13 +232,11 @@ function draw() {
     cuadrados.dibujar(haySonido);
     
   }
-
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp);
+    console.log(amp, frameCount);
   }
-  mousePressed();
 }
 
 function imprimirData() {
