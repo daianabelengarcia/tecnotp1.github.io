@@ -5,8 +5,8 @@ class Cuadrados {
     this.posX;
     this.posY;
     this.cantidadDeImagenes = 10;
-    this.cantidadDeCuadrados = 22;
-    this.cantidadDeCuadradosY = 47;
+    this.cantidadDeCuadrados = windowheight;
+    this.cantidadDeCuadradosY = windowheight;
     this.distanciaCuadradosX = 10;
     this.distanciaCuadradosY = 30;
     this.indiceAleatorio = [];
