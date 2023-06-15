@@ -269,3 +269,7 @@ function cambiaColor() {
     colorMarrones4 = floor(random(0, 8));
   }
 }
+
+function mousePressed(){
+  frameCount = 0;
+}
