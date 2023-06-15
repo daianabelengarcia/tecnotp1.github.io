@@ -29,7 +29,7 @@ class Cuadrados {
   dibujar(sonido) {
     for (let i = 0; i < this.cantidadDeCuadrados; i++) {
       for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-        let x = i * this.distanciaCuadradosX + random(0, 10);
+        let x = i * this.distanciaCuadradosX;
         let y = c * this.distanciaCuadradosY;
         this.posX = x;
         this.posY = y;
@@ -43,15 +43,6 @@ class Cuadrados {
           this.distanciaCuadradosX = random(10, 40);
         }
 
-      }
-    }
-  }
-  reiniciar() {
-    this.indiceAleatorio = [];
-
-    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
-      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-        this.indiceAleatorio.push(floor(random(this.imagenes.length)));
       }
     }
   }

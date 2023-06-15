@@ -269,36 +269,3 @@ function cambiaColor() {
     colorMarrones4 = floor(random(0, 8));
   }
 }
-
-function mousePressed(){
-  reiniciar();
-}
-
-function reiniciar() {
-
-  for (let i = 0; i < 7; i++) {
-    grafico[i].reset();
-  }
-  
-  for (let i = 0; i < 15; i++) {
-    pincelada0[i].reiniciar();
-    pincelada1[i].reiniciar();
-    pincelada2[i].reiniciar();
-    pincelada3[i].reiniciar();
-    pincelada4[i].reiniciar();
-    pincelada5[i].reiniciar();
-    pincelada6[i].reiniciar();
-  }
-  
-  cuadrados.reiniciar();
-  
-  capa = 0;
-  
-  colorMarrones = floor(random(0, 8));
-  colorAmarillos = floor(random(0, 5));
-  colorMarrones2 = floor(random(0, 8));
-  colorColores = floor(random(0, 7));
-  colorMarrones3 = floor(random(0, 8));
-  colorNaranjas = floor(random(0, 7));
-  colorMarrones4 = floor(random(0, 8));
-}
