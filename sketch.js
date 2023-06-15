@@ -230,6 +230,7 @@ function draw() {
   }
   if (capa == 7) {
     cuadrados.dibujar(haySonido);
+    
   }
 
   subioelVolumen = amp;
@@ -237,6 +238,7 @@ function draw() {
   if (haySonido) {
     console.log(amp);
   }
+  mousePressed();
 }
 
 function imprimirData() {
