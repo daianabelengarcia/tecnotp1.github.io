@@ -271,5 +271,5 @@ function cambiaColor() {
 }
 
 function mousePressed(){
-  frameCount = 0;
+  capa = 0;
 }
