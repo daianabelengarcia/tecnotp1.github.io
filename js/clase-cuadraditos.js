@@ -17,8 +17,6 @@ class Cuadrados {
     }
 
 
-
-
     for (let i = 0; i < this.cantidadDeCuadrados; i++) {
       for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
         this.indiceAleatorio.push(floor(random(this.imagenes.length)));
