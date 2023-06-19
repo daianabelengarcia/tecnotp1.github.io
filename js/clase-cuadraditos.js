@@ -5,7 +5,7 @@ class Cuadrados {
     this.posX;
     this.posY;
     this.filas = 27;
-    this.cantidadDeImagenes = 10;
+    this.cantidadDeImagenes = 25;
     this.cantidadDeCuadrados = windowHeight;
     this.cantidadDeCuadradosY = this.filas;
     this.distanciaCuadradosX = 27;

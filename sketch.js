@@ -230,8 +230,10 @@ function draw() {
     capa = 7;
   }
 
-
+if(capa >= 0){
   cuadrados.dibujar();
+}
+ 
 
  if (capa == 7) { 
    cuadrados.mover(haySonido);
