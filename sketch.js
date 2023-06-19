@@ -232,7 +232,7 @@ function draw() {
 
 
   cuadrados.dibujar();
-  
+
  if (capa == 7) { 
    cuadrados.mover(haySonido);
  }
@@ -274,3 +274,39 @@ function cambiaColor() {
     colorMarrones4 = floor(random(0, 8));
   }
 }
+
+function mouseClicked() {
+  setup(); // Vuelve a ejecutar la función setup()
+  reiniciar();
+}
+
+function reiniciar(){
+pincelada0 = [];
+  pincelada1 = [];
+  pincelada2 = [];
+  pincelada3 = [];
+  pincelada4 = [];
+  pincelada5 = [];
+  pincelada6 = [];
+
+  for (let i = 0; i < 15; i++) {
+    pincelada0.push(new Pincelada());
+    pincelada1.push(new Pincelada());
+    pincelada2.push(new Pincelada());
+    pincelada3.push(new Pincelada());
+    pincelada4.push(new Pincelada());
+    pincelada5.push(new Pincelada());
+    pincelada6.push(new Pincelada());
+  }
+
+  capa = 0;
+
+  colorMarrones = floor(random(0, 8));
+  colorAmarillos = floor(random(0, 5));
+  colorMarrones2 = floor(random(0, 8));
+  colorColores = floor(random(0, 7));
+  colorMarrones3 = floor(random(0, 8));
+  colorNaranjas = floor(random(0, 7));
+  colorMarrones4 = floor(random(0, 8));
+}
+
