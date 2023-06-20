@@ -23,9 +23,9 @@ let pincelada3 = [];
 let pincelada4 = [];
 let tr = 80; //transparencia caminantes
 
-let cuadrados;
 
 //-----CAPAS e IMAGENES----
+let cuadrados;
 let lienzo;
 let capa;
 let marrones = [];
