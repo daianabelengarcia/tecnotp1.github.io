@@ -63,7 +63,7 @@ function setup() {
   mic.start();
   userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
 
-  for (let i = 0; i < 7; i++) {
+  for (let i = 0; i < 5; i++) {
     grafico[i] = createGraphics(width, height);
   }
 
