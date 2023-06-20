@@ -6,7 +6,7 @@ class Cuadrados {
     this.posY;
     this.filas = 27;
     this.cantidadDeImagenes = 25;
-    this.cantidadDeCuadrados = windowHeight;
+    this.cantidadDeCuadrados = 32;
     this.cantidadDeCuadradosY = this.filas;
     this.distanciaCuadradosX = 27;
     this.distanciaCuadradosY = 40;
@@ -36,7 +36,7 @@ class Cuadrados {
         let index = i * this.cantidadDeCuadradosY + c;
         let indice = this.indiceAleatorio[index];
 
-        image(this.imagenes[indice], this.posX, this.posY, 20, 35);
+        image(this.imagenes[indice], this.posX-27, this.posY, 20, 35);
       }
     }
   }
