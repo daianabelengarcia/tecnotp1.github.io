@@ -106,7 +106,7 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-  if (haySonido && diferenciaVolumen > umbral) {
+   if (haySonido && diferenciaVolumen > umbral) {
     cambiaColor();
   }
   if (capa == 0) {
@@ -120,7 +120,7 @@ function draw() {
     image(copia, 0, 0, width, height);
   }
 
-
+ 
 
   if (pincelada0[0].posY >= height) {
     capa = 1;
@@ -136,8 +136,9 @@ function draw() {
     let copia2 = amarillos[colorAmarillos].get();
     copia2.mask(grafico[1]);
     image(copia2, 0, 0, width, height);
-  }
 
+  
+  }
 
 
 
@@ -219,19 +220,25 @@ function draw() {
         pincelada6[i].dibujarGrafico(grafico[6]);
       }
     }
-
     let copia7 = marrones[colorMarrones4].get();
     copia7.mask(grafico[6]);
     image(copia7, 0, 0, width, height);
-
   }
+
+
   if (pincelada6[0].posY >= height) {
     capa = 7;
   }
-  if (capa == 7) {
-    cuadrados.dibujar(haySonido);
-    
-  }
+
+if(capa >= 0){
+  cuadrados.dibujar();
+}
+ 
+
+ if (capa == 7) { 
+   cuadrados.mover(haySonido);
+ }
+ 
   subioelVolumen = amp;
 
   if (haySonido) {
@@ -269,3 +276,39 @@ function cambiaColor() {
     colorMarrones4 = floor(random(0, 8));
   }
 }
+
+function mouseClicked() {
+  setup(); // Vuelve a ejecutar la función setup()
+  reiniciar();
+}
+
+function reiniciar(){
+pincelada0 = [];
+  pincelada1 = [];
+  pincelada2 = [];
+  pincelada3 = [];
+  pincelada4 = [];
+  pincelada5 = [];
+  pincelada6 = [];
+
+  for (let i = 0; i < 15; i++) {
+    pincelada0.push(new Pincelada());
+    pincelada1.push(new Pincelada());
+    pincelada2.push(new Pincelada());
+    pincelada3.push(new Pincelada());
+    pincelada4.push(new Pincelada());
+    pincelada5.push(new Pincelada());
+    pincelada6.push(new Pincelada());
+  }
+
+  capa = 0;
+
+  colorMarrones = floor(random(0, 8));
+  colorAmarillos = floor(random(0, 5));
+  colorMarrones2 = floor(random(0, 8));
+  colorColores = floor(random(0, 7));
+  colorMarrones3 = floor(random(0, 8));
+  colorNaranjas = floor(random(0, 7));
+  colorMarrones4 = floor(random(0, 8));
+}
+

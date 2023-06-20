@@ -4,11 +4,12 @@ class Cuadrados {
     this.imagenes = [];
     this.posX;
     this.posY;
-    this.cantidadDeImagenes = 10;
+    this.filas = 27;
+    this.cantidadDeImagenes = 25;
     this.cantidadDeCuadrados = windowHeight;
-    this.cantidadDeCuadradosY = windowHeight;
-    this.distanciaCuadradosX = 30;
-    this.distanciaCuadradosY = 45;
+    this.cantidadDeCuadradosY = this.filas;
+    this.distanciaCuadradosX = 27;
+    this.distanciaCuadradosY = 40;
     this.indiceAleatorio = [];
 
 
@@ -24,7 +25,7 @@ class Cuadrados {
     }
   }
 
-  dibujar(sonido) {
+  dibujar() {
     for (let i = 0; i < this.cantidadDeCuadrados; i++) {
       for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
         let x = i * this.distanciaCuadradosX;
@@ -35,13 +36,17 @@ class Cuadrados {
         let index = i * this.cantidadDeCuadradosY + c;
         let indice = this.indiceAleatorio[index];
 
-        image(this.imagenes[indice], this.posX, this.posY, 25, 40);
-
-        if (sonido) {
-          this.distanciaCuadradosX = random(10, 40);
-        }
-
+        image(this.imagenes[indice], this.posX, this.posY, 20, 35);
       }
     }
   }
+
+ mover(sonido){
+  if (sonido) {
+    this.distanciaCuadradosX= random(20, 50);
+  } else {
+    this.distanciaCuadradosX= 27;
+} 
+}
+
 }
