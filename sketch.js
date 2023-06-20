@@ -15,12 +15,13 @@ let subioelVolumen;
 let umbral = 0.1;
 
 //-----PINCELADAS----
-let tam = 15;
+let tam = 20;
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
 let pincelada3 = [];
 let pincelada4 = [];
+let tr = 80; //transparencia caminantes
 
 let cuadrados;
 
@@ -69,11 +70,11 @@ function setup() {
   }
 
   for (let i = 0; i < tam; i++) {
-    pincelada0.push(new Pincelada());
-    pincelada1.push(new Pincelada());
-    pincelada2.push(new Pincelada());
-    pincelada3.push(new Pincelada());
-    pincelada4.push(new Pincelada());
+    pincelada0.push(new Pincelada(tr));
+    pincelada1.push(new Pincelada(tr));
+    pincelada2.push(new Pincelada(tr));
+    pincelada3.push(new Pincelada(tr));
+    pincelada4.push(new Pincelada(tr));
   }
   cuadrados = new Cuadrados();
   capa = 0;
@@ -97,10 +98,9 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-  if (haySonido && diferenciaVolumen > umbral) {
+  if (haySonido && diferenciaVolumen > umbral) { //Elije una nueva imagen del color cuando supera el umbral de amplitud
     cambiaColor();
   }
-
 
   if (capa == 0) {
     for (let i = 0; i < tam; i++) {
@@ -186,11 +186,9 @@ function draw() {
     capa = 5;
   }
 
-  if (capa >= 0) {
+  if (capa >= 0) { //Aparecen los cuadrados primero
     cuadrados.dibujar();
   }
-
-
   if (capa == 5) {
     cuadrados.mover(haySonido);
   }
@@ -198,7 +196,7 @@ function draw() {
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, frameCount);
+    console.log(amp);
   }
 }
 
@@ -242,11 +240,11 @@ function reiniciar() {
   pincelada4 = [];
 
   for (let i = 0; i < tam; i++) {
-    pincelada0.push(new Pincelada());
-    pincelada1.push(new Pincelada());
-    pincelada2.push(new Pincelada());
-    pincelada3.push(new Pincelada());
-    pincelada4.push(new Pincelada());
+    pincelada0.push(new Pincelada(tr));
+    pincelada1.push(new Pincelada(tr));
+    pincelada2.push(new Pincelada(tr));
+    pincelada3.push(new Pincelada(tr));
+    pincelada4.push(new Pincelada(tr));
   }
 
   capa = 0;
