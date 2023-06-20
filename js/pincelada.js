@@ -7,12 +7,12 @@ class Pincelada {
     this.posY = 0;
     this.x = 0;
     this.tam = 40;
-    this.curva = random(0.03,0.08);
+    this.curva = random(0.03,0.10);
   }
 
   dibujarGrafico(grafico) {
 
-    this.posY = this.y += 5;
+    this.posY = this.y += 8;
     this.x = sin(this.counter) * 20 + this.posX;
 
     grafico.fill(0);
