@@ -1,8 +1,6 @@
 //-------CONFIGURACION----
 
 let AMP_MIN = 0.05; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
-let IMPRIMIR = false;
-
 
 //-----ENTRADA DE AUDIO----
 let mic;
@@ -200,20 +198,7 @@ function draw() {
   }
 }
 
-function imprimirData() {
-
-  background(255);
-  push();
-  textSize(16);
-  fill(0);
-  let texto;
-  texto = 'amplitud: ' + amp;
-  text(texto, 10, 20);
-  pop();
-
-}
-
-function cambiaColor() {
+function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
   if (capa == 0) {
     colorAmarillos = floor(random(0, 5));
   } else if (capa == 1) {
