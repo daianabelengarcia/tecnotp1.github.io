@@ -15,7 +15,7 @@ let subioelVolumen;
 let umbral = 0.1;
 
 //-----PINCELADAS----
-let tam = 20;
+let tam = 15;
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
@@ -198,7 +198,7 @@ function draw() {
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, tam);
+    console.log(amp, frameCount);
   }
 }
 
