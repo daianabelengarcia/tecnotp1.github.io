@@ -21,8 +21,6 @@ let pincelada1 = [];
 let pincelada2 = [];
 let pincelada3 = [];
 let pincelada4 = [];
-let pincelada5 = [];
-let pincelada6 = [];
 
 let cuadrados;
 
@@ -36,13 +34,11 @@ let colores = [];
 let grafico = [];
 
 //-----CAMBIO DE COLORES----
-let colorMarrones;
 let colorAmarillos;
-let colorMarrones2;
 let colorColores;
-let colorMarrones3;
+let colorMarrones1;
 let colorNaranjas;
-let colorMarrones4;
+let colorMarrones2;
 
 function preload() {
   lienzo = loadImage('img/lienzo.jpg');
@@ -73,26 +69,21 @@ function setup() {
   }
 
   for (let i = 0; i < tam; i++) {
-
     pincelada0.push(new Pincelada());
     pincelada1.push(new Pincelada());
     pincelada2.push(new Pincelada());
     pincelada3.push(new Pincelada());
     pincelada4.push(new Pincelada());
-    pincelada5.push(new Pincelada());
-    pincelada6.push(new Pincelada());
   }
-  cuadrados = new Cuadrados(); 
+  cuadrados = new Cuadrados();
   capa = 0;
 
 
-  colorMarrones = floor(random(0, 8));
   colorAmarillos = floor(random(0, 5));
-  colorMarrones2 = floor(random(0, 8));
   colorColores = floor(random(0, 7));
-  colorMarrones3 = floor(random(0, 8));
+  colorMarrones1 = floor(random(0, 8));
   colorNaranjas = floor(random(0, 7));
-  colorMarrones4 = floor(random(0, 8));
+  colorMarrones2 = floor(random(0, 8));
 
 
 }
@@ -106,62 +97,61 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-   if (haySonido && diferenciaVolumen > umbral) {
+  if (haySonido && diferenciaVolumen > umbral) {
     cambiaColor();
   }
-  /* if (capa == 0) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada0[i].dibujarGrafico(grafico[0]);
-      }
-    }
-    let copia = marrones[colorMarrones].get();
-    copia.mask(grafico[0]);
-    image(copia, 0, 0, width, height);
-  }
-
- 
-
-  if (pincelada0[0].posY >= height) {
-    capa = 1;
-  }*/
 
 
   if (capa == 0) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
+        pincelada0[i].dibujarGrafico(grafico[0]);
+      }
+    }
+    let copia0 = amarillos[colorAmarillos].get();
+    copia0.mask(grafico[0]);
+    image(copia0, 0, 0, width, height);
+  }
+
+
+
+  if (pincelada0[0].posY >= height) {
+    capa = 1;
+  }
+
+  if (capa == 1) {
+    for (let i = 0; i < tam; i++) {
+      if (haySonido) {
         pincelada1[i].dibujarGrafico(grafico[1]);
       }
     }
-    let copia2 = amarillos[colorAmarillos].get();
-    copia2.mask(grafico[1]);
-    image(copia2, 0, 0, width, height);
 
-  
+    let copia1 = colores[colorColores].get();
+    copia1.mask(grafico[1]);
+    image(copia1, 0, 0, width, height);
+
   }
-
-
 
   if (pincelada1[0].posY >= height) {
-    capa = 3;
+    capa = 2;
   }
 
-  /*if (capa == 2) {
+  if (capa == 2) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
         pincelada2[i].dibujarGrafico(grafico[2]);
       }
     }
 
-    let copia3 = marrones[colorMarrones2].get();
-    copia3.mask(grafico[2]);
-    image(copia3, 0, 0, width, height);
+    let copia2 = marrones[colorMarrones1].get();
+    copia2.mask(grafico[2]);
+    image(copia2, 0, 0, width, height);
 
   }
 
   if (pincelada2[0].posY >= height) {
     capa = 3;
-  } */
+  }
 
   if (capa == 3) {
     for (let i = 0; i < tam; i++) {
@@ -170,9 +160,9 @@ function draw() {
       }
     }
 
-    let copia4 = colores[colorColores].get();
-    copia4.mask(grafico[3]);
-    image(copia4, 0, 0, width, height);
+    let copia3 = naranjas[colorNaranjas].get();
+    copia3.mask(grafico[3]);
+    image(copia3, 0, 0, width, height);
 
   }
 
@@ -186,59 +176,25 @@ function draw() {
         pincelada4[i].dibujarGrafico(grafico[4]);
       }
     }
-
-    let copia5 = marrones[colorMarrones3].get();
-    copia5.mask(grafico[4]);
-    image(copia5, 0, 0, width, height);
-
+    let copia4 = marrones[colorMarrones2].get();
+    copia4.mask(grafico[4]);
+    image(copia4, 0, 0, width, height);
   }
+
 
   if (pincelada4[0].posY >= height) {
     capa = 5;
   }
 
+  if (capa >= 0) {
+    cuadrados.dibujar();
+  }
+
+
   if (capa == 5) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada5[i].dibujarGrafico(grafico[5]);
-      }
-    }
-
-    let copia6 = naranjas[colorNaranjas].get();
-    copia6.mask(grafico[5]);
-    image(copia6, 0, 0, width, height);
-
+    cuadrados.mover(haySonido);
   }
 
-  if (pincelada5[0].posY >= height) {
-    capa = 6;
-  }
-
-  if (capa == 6) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada6[i].dibujarGrafico(grafico[6]);
-      }
-    }
-    let copia7 = marrones[colorMarrones4].get();
-    copia7.mask(grafico[6]);
-    image(copia7, 0, 0, width, height);
-  }
-
-
-  if (pincelada6[0].posY >= height) {
-    capa = 7;
-  }
-
-if(capa >= 0){
-  cuadrados.dibujar();
-}
- 
-
- if (capa == 7) { 
-   cuadrados.mover(haySonido);
- }
- 
   subioelVolumen = amp;
 
   if (haySonido) {
@@ -261,19 +217,15 @@ function imprimirData() {
 
 function cambiaColor() {
   if (capa == 0) {
-    colorMarrones = floor(random(0, 8));
-  } else if (capa == 1) {
     colorAmarillos = floor(random(0, 5));
-  } else if (capa == 2) {
-    colorMarrones2 = floor(random(0, 8));
-  } else if (capa == 3) {
+  } else if (capa == 1) {
     colorColores = floor(random(0, 7));
-  } else if (capa == 4) {
-    colorMarrones3 = floor(random(0, 8));
-  } else if (capa == 5) {
+  } else if (capa == 2) {
+    colorMarrones1 = floor(random(0, 8));
+  } else if (capa == 3) {
     colorNaranjas = floor(random(0, 7));
-  } else if (capa == 6) {
-    colorMarrones4 = floor(random(0, 8));
+  } else if (capa == 4) {
+    colorMarrones2 = floor(random(0, 8));
   }
 }
 
@@ -282,33 +234,27 @@ function mouseClicked() {
   reiniciar();
 }
 
-function reiniciar(){
-pincelada0 = [];
+function reiniciar() {
+  pincelada0 = [];
   pincelada1 = [];
   pincelada2 = [];
   pincelada3 = [];
   pincelada4 = [];
-  pincelada5 = [];
-  pincelada6 = [];
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < tam; i++) {
     pincelada0.push(new Pincelada());
     pincelada1.push(new Pincelada());
     pincelada2.push(new Pincelada());
     pincelada3.push(new Pincelada());
     pincelada4.push(new Pincelada());
-    pincelada5.push(new Pincelada());
-    pincelada6.push(new Pincelada());
   }
 
   capa = 0;
 
-  colorMarrones = floor(random(0, 8));
   colorAmarillos = floor(random(0, 5));
-  colorMarrones2 = floor(random(0, 8));
   colorColores = floor(random(0, 7));
-  colorMarrones3 = floor(random(0, 8));
+  colorMarrones1 = floor(random(0, 8));
   colorNaranjas = floor(random(0, 7));
-  colorMarrones4 = floor(random(0, 8));
+  colorMarrones2 = floor(random(0, 8));
 }
 
