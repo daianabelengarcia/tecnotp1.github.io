@@ -15,7 +15,7 @@ let subioelVolumen;
 let umbral = 0.1;
 
 //-----PINCELADAS----
-let tam = 15;
+let tam = 20;
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
@@ -72,7 +72,7 @@ function setup() {
     grafico[i] = createGraphics(width, height);
   }
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < tam; i++) {
 
     pincelada0.push(new Pincelada());
     pincelada1.push(new Pincelada());
@@ -242,7 +242,7 @@ if(capa >= 0){
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, frameCount);
+    console.log(amp, tam);
   }
 }
 
