@@ -109,7 +109,7 @@ function draw() {
    if (haySonido && diferenciaVolumen > umbral) {
     cambiaColor();
   }
-  if (capa == 0) {
+  /* if (capa == 0) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
         pincelada0[i].dibujarGrafico(grafico[0]);
@@ -124,10 +124,10 @@ function draw() {
 
   if (pincelada0[0].posY >= height) {
     capa = 1;
-  }
+  }*/
 
 
-  if (capa == 1) {
+  if (capa == 0) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
         pincelada1[i].dibujarGrafico(grafico[1]);
@@ -143,10 +143,10 @@ function draw() {
 
 
   if (pincelada1[0].posY >= height) {
-    capa = 2;
+    capa = 3;
   }
 
-  if (capa == 2) {
+  /*if (capa == 2) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
         pincelada2[i].dibujarGrafico(grafico[2]);
@@ -161,7 +161,7 @@ function draw() {
 
   if (pincelada2[0].posY >= height) {
     capa = 3;
-  }
+  } */
 
   if (capa == 3) {
     for (let i = 0; i < tam; i++) {
