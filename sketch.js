@@ -1,14 +1,3 @@
-//------CLASIFICADOR-----
-let classifier;
-const options = { probabilityThreshold: 0.9 };
-let label;
-let etiqueta;
-const classModel = 'https://teachablemachine.withgoogle.com/models/h3p9R41J/model.json'; //url del modelo producido con Teachable Machine
-
-
-
-
-
 //-------CONFIGURACION----
 
 let AMP_MIN = 0.05; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
@@ -26,7 +15,7 @@ let subioelVolumen;
 let umbral = 0.1;
 
 //-----PINCELADAS----
-let tam = 20;
+let tam = 15;
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
@@ -56,9 +45,6 @@ let colorNaranjas;
 let colorMarrones4;
 
 function preload() {
-
-  classifier = ml5.soundClassifier(soundModel + 'model.json');
-
   lienzo = loadImage('img/lienzo.jpg');
   for (let i = 0; i < 8; i++) {
     marrones[i] = loadImage('img/marron-' + i + '.jpg');
@@ -75,11 +61,7 @@ function preload() {
 }
 
 function setup() {
-
   createCanvas(windowHeight, windowHeight);
-
-  classifier.classify(gotResult);
-  
   image(lienzo, 0, 0, width, height);
 
   mic = new p5.AudioIn();
@@ -90,7 +72,7 @@ function setup() {
     grafico[i] = createGraphics(width, height);
   }
 
-  for (let i = 0; i < tam; i++) {
+  for (let i = 0; i < 15; i++) {
 
     pincelada0.push(new Pincelada());
     pincelada1.push(new Pincelada());
@@ -100,7 +82,7 @@ function setup() {
     pincelada5.push(new Pincelada());
     pincelada6.push(new Pincelada());
   }
-  cuadrados = new Cuadrados();
+  cuadrados = new Cuadrados(); 
   capa = 0;
 
 
@@ -124,7 +106,7 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-  if (haySonido && diferenciaVolumen > umbral) {
+   if (haySonido && diferenciaVolumen > umbral) {
     cambiaColor();
   }
   /* if (capa == 0) {
@@ -155,7 +137,7 @@ function draw() {
     copia2.mask(grafico[1]);
     image(copia2, 0, 0, width, height);
 
-
+  
   }
 
 
@@ -248,47 +230,21 @@ function draw() {
     capa = 7;
   }
 
-  if (capa >= 0) {
-    cuadrados.dibujar();
-  }
+if(capa >= 0){
+  cuadrados.dibujar();
+}
+ 
 
-
-  if (capa == 7) {
-    cuadrados.mover(haySonido);
-  }
-
+ if (capa == 7) { 
+   cuadrados.mover(haySonido);
+ }
+ 
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, tam);
+    console.log(amp, frameCount);
   }
-
-
-//--------CLASIFICADOR------
-if(label == 'Shhhhh'){
-  // background(255);
-  setup();
-  reiniciar();
-  label = '';
-  console.log('resetea figura x shhhhhh');
 }
-
-}
-
-
-function gotResult(error, results) {
-  // Display error in the console
-  if (error) {
-    console.error(error);
-  }
-  // The results are in an array ordered by confidence.
-  //console.log(results);
-  // Show the first label and confidence
-  label = results[0].label;
-  etiqueta = label;
-}
-
-
 
 function imprimirData() {
 
@@ -326,8 +282,8 @@ function mouseClicked() {
   reiniciar();
 }
 
-function reiniciar() {
-  pincelada0 = [];
+function reiniciar(){
+pincelada0 = [];
   pincelada1 = [];
   pincelada2 = [];
   pincelada3 = [];
