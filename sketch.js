@@ -130,7 +130,7 @@ function draw() {
   if (capa == 1) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
-        pincelada1[i].dibujarGrafico2(grafico[1]);
+        pincelada1[i].dibujarGrafico(grafico[1]);
       }
     }
     let copia2 = amarillos[colorAmarillos].get();
@@ -166,7 +166,7 @@ function draw() {
   if (capa == 3) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
-        pincelada3[i].dibujarGrafico2(grafico[3]);
+        pincelada3[i].dibujarGrafico(grafico[3]);
       }
     }
 
@@ -200,7 +200,7 @@ function draw() {
   if (capa == 5) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
-        pincelada5[i].dibujarGrafico2(grafico[5]);
+        pincelada5[i].dibujarGrafico(grafico[5]);
       }
     }
 
