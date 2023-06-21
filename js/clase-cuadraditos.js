@@ -4,9 +4,9 @@ class Cuadrados {
     this.imagenes = [];
     this.posX;
     this.posY;
-    this.filas = 27;
+    this.filas = 11;
     this.cantidadDeImagenes = 25;
-    this.cantidadDeCuadrados = 40;
+    this.cantidadDeCuadrados = 17;
     this.cantidadDeCuadradosY = this.filas;
     this.distanciaCuadradosX = 20;
     this.distanciaCuadradosY = 30;
@@ -39,6 +39,63 @@ class Cuadrados {
         image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
       }
     }
+  }
+
+  dibujar2() {
+    push();
+    translate(width/2 + this.distanciaCuadradosX+10, height/2 + this.distanciaCuadradosY/2);
+    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
+      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
+        let x = i * this.distanciaCuadradosX;
+        let y = c * this.distanciaCuadradosY;
+        this.posX = x;
+        this.posY = y;
+
+        let index = i * this.cantidadDeCuadradosY + c;
+        let indice = this.indiceAleatorio[index];
+
+        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
+      }
+    }
+    pop();
+  }
+
+  dibujar3() {
+    push();
+    translate(width/2 + this.distanciaCuadradosX+10, 0);
+    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
+      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
+        let x = i * this.distanciaCuadradosX;
+        let y = c * this.distanciaCuadradosY;
+        this.posX = x;
+        this.posY = y;
+
+        let index = i * this.cantidadDeCuadradosY + c;
+        let indice = this.indiceAleatorio[index];
+
+        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
+      }
+    }
+    pop();
+  }
+
+  dibujar4() {
+    push();
+    translate(0, height/2 + this.distanciaCuadradosY/2);
+    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
+      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
+        let x = i * this.distanciaCuadradosX;
+        let y = c * this.distanciaCuadradosY;
+        this.posX = x;
+        this.posY = y;
+
+        let index = i * this.cantidadDeCuadradosY + c;
+        let indice = this.indiceAleatorio[index];
+
+        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
+      }
+    }
+    pop();
   }
 
  mover(sonido){
