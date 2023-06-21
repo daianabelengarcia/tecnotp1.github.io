@@ -19,7 +19,7 @@ let pincelada1 = [];
 let pincelada2 = [];
 let pincelada3 = [];
 let pincelada4 = [];
-let tr = 80; //transparencia caminantes
+let tr = 80; //transparencia de caminantes
 
 
 //-----CAPAS e IMAGENES----
