@@ -184,9 +184,20 @@ function draw() {
     capa = 5;
   }
 
-  if (capa >= 0) { //Aparecen los cuadrados primero
+  if (capa >= 0) { //Aparecen los cuadrados por capas
     cuadrados.dibujar();
   }
+  if (capa >= 1) { 
+    cuadrados.dibujar2();
+  }
+  if (capa >= 2) { 
+    cuadrados.dibujar3();
+  }
+  if (capa >= 3) { 
+    cuadrados.dibujar4();
+  }
+
+
   if (capa == 5) {
     cuadrados.mover(haySonido);
   }
