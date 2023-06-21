@@ -6,10 +6,10 @@ class Cuadrados {
     this.posY;
     this.filas = 27;
     this.cantidadDeImagenes = 25;
-    this.cantidadDeCuadrados = 32;
+    this.cantidadDeCuadrados = 40;
     this.cantidadDeCuadradosY = this.filas;
-    this.distanciaCuadradosX = 27;
-    this.distanciaCuadradosY = 40;
+    this.distanciaCuadradosX = 20;
+    this.distanciaCuadradosY = 30;
     this.indiceAleatorio = [];
 
 
@@ -36,16 +36,16 @@ class Cuadrados {
         let index = i * this.cantidadDeCuadradosY + c;
         let indice = this.indiceAleatorio[index];
 
-        image(this.imagenes[indice], this.posX-27, this.posY, 20, 35);
+        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
       }
     }
   }
 
  mover(sonido){
   if (sonido) {
-    this.distanciaCuadradosX= random(20, 50);
+    this.distanciaCuadradosX= random(15, 30);
   } else {
-    this.distanciaCuadradosX= 27;
+    this.distanciaCuadradosX= 20;
 } 
 }
 
