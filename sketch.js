@@ -217,16 +217,20 @@ function draw() {
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp, frameCount);
+    
   }
 
   //--------CLASIFICADOR------
+  //console.log(label);
   if(label == 'Shhhhh'){
     reiniciar();
     label = ''; //no sacar esto [sabemos que hace?] [no] 
     //[podemos sacarlo?] [no, se rompe el programa]
-    
+    console.log ("resetea");
+  }else if(label == 'Aplauso'){
+    label = '';
   }
+
 }
 
 function gotResult(error, results) {
@@ -239,6 +243,7 @@ function gotResult(error, results) {
   // Show the first label and confidence
   label = results[0].label;
   etiqueta = label;
+  console.log (results[0].label);
 }
 
 function imprimirData() {
