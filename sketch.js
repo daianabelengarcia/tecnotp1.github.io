@@ -1,6 +1,7 @@
 //-------CONFIGURACION----
 
 let AMP_MIN = 0.05; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
+let IMPRIMIR = false;
 
 //-----ENTRADA DE AUDIO----
 let mic;
@@ -39,6 +40,14 @@ let colorMarrones1;
 let colorNaranjas;
 let colorMarrones2;
 
+//------CLASIFICADOR-----
+let classifier;
+const options = { probabilityThreshold: 0.9 };
+let label;
+let etiqueta;
+const classModel = 'https://teachablemachine.withgoogle.com/models/SinBwQf_x/'; //url del modelo producido con Teachable Machine
+
+
 function preload() {
   lienzo = loadImage('img/lienzo.jpg');
   for (let i = 0; i < 8; i++) {
@@ -53,6 +62,10 @@ function preload() {
   for (let i = 0; i < 7; i++) {
     colores[i] = loadImage('img/color-' + i + '.jpg');
   }
+
+//------CLASIFICADOR-----
+classifier = ml5.soundClassifier(classModel + 'model.json', options);
+
 }
 
 function setup() {
@@ -84,9 +97,10 @@ function setup() {
   colorNaranjas = floor(random(0, 7));
   colorMarrones2 = floor(random(0, 8));
 
+//------CLASIFICADOR-----
+classifier.classify(gotResult);
 
 }
-
 
 
 function draw() {
@@ -196,8 +210,6 @@ function draw() {
   if (capa >= 3) { 
     cuadrados.dibujar4();
   }
-
-
   if (capa == 5) {
     cuadrados.mover(haySonido);
   }
@@ -205,8 +217,41 @@ function draw() {
   subioelVolumen = amp;
 
   if (haySonido) {
-    console.log(amp);
+    console.log(amp, frameCount);
   }
+
+  //--------CLASIFICADOR------
+  if(label == 'Shhhhh'){
+    reiniciar();
+    label = ''; //no sacar esto [sabemos que hace?] [no] 
+    //[podemos sacarlo?] [no, se rompe el programa]
+    
+  }
+}
+
+function gotResult(error, results) {
+  // Display error in the console
+  if (error) {
+    console.error(error);
+  }
+  // The results are in an array ordered by confidence.
+  //console.log(results);
+  // Show the first label and confidence
+  label = results[0].label;
+  etiqueta = label;
+}
+
+function imprimirData() {
+
+  background(255);
+  push();
+  textSize(16);
+  fill(0);
+  let texto;
+  texto = 'amplitud: ' + amp;
+  text(texto, 10, 20);
+  pop();
+
 }
 
 function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
@@ -223,10 +268,10 @@ function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
   }
 }
 
-function mouseClicked() {
-  setup(); // Vuelve a ejecutar la función setup()
-  reiniciar();
-}
+// function mouseClicked() {
+//   setup(); // Vuelve a ejecutar la función setup()
+//   reiniciar();
+// }
 
 function reiniciar() {
   pincelada0 = [];
