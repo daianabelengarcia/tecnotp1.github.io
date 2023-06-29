@@ -42,7 +42,7 @@ let colorMarrones2;
 
 //------CLASIFICADOR-----
 let classifier;
-const options = { probabilityThreshold: 0.9 };
+const options = { probabilityThreshold: 0.8 };
 let label;
 let etiqueta;
 const classModel = 'https://teachablemachine.withgoogle.com/models/SinBwQf_x/'; //url del modelo producido con Teachable Machine
@@ -216,17 +216,16 @@ function draw() {
 
   subioelVolumen = amp;
 
-  if (haySonido) {
-    
-  }
+  // if (haySonido) {
+  //   console.log(amp);
+  // }
 
   //--------CLASIFICADOR------
-  //console.log(label);
+
   if(label == 'Shhhhh'){
     reiniciar();
     label = ''; //no sacar esto [sabemos que hace?] [no] 
     //[podemos sacarlo?] [no, se rompe el programa]
-    console.log ("resetea");
   }else if(label == 'Aplauso'){
     label = '';
   }
@@ -279,6 +278,7 @@ function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
 // }
 
 function reiniciar() {
+  setup();
   pincelada0 = [];
   pincelada1 = [];
   pincelada2 = [];
