@@ -11,17 +11,16 @@ let mic;
 let amp;
 let haySonido = false;
 let subioelVolumen;
-let umbral = 0.1;
+let umbral = 0.2;
 
 //-----PINCELADAS----
-let tam = 20;
+let tam = 30;
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
 let pincelada3 = [];
 let pincelada4 = [];
-let tr = 80; //transparencia de caminantes
-
+let tr = 90; //transparencia de caminantes
 
 //-----CAPAS e IMAGENES----
 let cuadrados;
@@ -40,33 +39,30 @@ let colorMarrones1;
 let colorNaranjas;
 let colorMarrones2;
 
-
 //------CLASIFICADOR-----
 let classifier;
 const options = { probabilityThreshold: 0.7 };
 let label;
 let etiqueta;
-const classModel = 'https://teachablemachine.withgoogle.com/models/AWOQJGwws/'; //url del modelo producido con Teachable Machine
-
+const classModel = "https://teachablemachine.withgoogle.com/models/AWOQJGwws/"; //url del modelo producido con Teachable Machine
 
 function preload() {
-  lienzo = loadImage('img/lienzo.jpg');
+  lienzo = loadImage("img/lienzo.jpg");
   for (let i = 0; i < 8; i++) {
-    marrones[i] = loadImage('img/marron-' + i + '.jpg');
+    marrones[i] = loadImage("img/marron-" + i + ".jpg");
   }
   for (let i = 0; i < 5; i++) {
-    amarillos[i] = loadImage('img/amarillo-' + i + '.jpg');
+    amarillos[i] = loadImage("img/amarillo-" + i + ".jpg");
   }
   for (let i = 0; i < 7; i++) {
-    naranjas[i] = loadImage('img/naranja-' + i + '.jpg');
+    naranjas[i] = loadImage("img/naranja-" + i + ".jpg");
   }
   for (let i = 0; i < 7; i++) {
-    colores[i] = loadImage('img/color-' + i + '.jpg');
+    colores[i] = loadImage("img/color-" + i + ".jpg");
   }
 
-//------CLASIFICADOR-----
-classifier = ml5.soundClassifier(classModel + 'model.json', options);
-
+  //------CLASIFICADOR-----
+  classifier = ml5.soundClassifier(classModel + "model.json", options);
 }
 
 function setup() {
@@ -91,29 +87,21 @@ function setup() {
   cuadrados = new Cuadrados();
   capa = 0;
 
-
   colorAmarillos = floor(random(0, 5));
   colorColores = floor(random(0, 7));
   colorMarrones1 = floor(random(0, 8));
   colorNaranjas = floor(random(0, 7));
   colorMarrones2 = floor(random(0, 8));
 
-//------CLASIFICADOR-----
-classifier.classify(gotResult);
-
+  //------CLASIFICADOR-----
+  classifier.classify(gotResult);
 }
 
-
 function draw() {
-
   amp = mic.getLevel();
 
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
-
-  /* if (haySonido && diferenciaVolumen > umbral) { //Elije una nueva imagen del color cuando supera el umbral de amplitud
-    cambiaColor();
-  } */
 
   if (capa == 0) {
     for (let i = 0; i < tam; i++) {
@@ -124,31 +112,27 @@ function draw() {
     let copia0 = amarillos[colorAmarillos].get();
     copia0.mask(grafico[0]);
     image(copia0, 0, 0, width, height);
-  }
-
-
-
+  } 
+  
   if (pincelada0[0].posY >= height) {
     capa = 1;
   }
-
+  
   if (capa == 1) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
         pincelada1[i].dibujarGrafico(grafico[1]);
       }
     }
-
     let copia1 = colores[colorColores].get();
     copia1.mask(grafico[1]);
     image(copia1, 0, 0, width, height);
-
   }
 
   if (pincelada1[0].posY >= height) {
     capa = 2;
   }
-
+  
   if (capa == 2) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
@@ -159,13 +143,12 @@ function draw() {
     let copia2 = marrones[colorMarrones1].get();
     copia2.mask(grafico[2]);
     image(copia2, 0, 0, width, height);
-
   }
 
   if (pincelada2[0].posY >= height) {
     capa = 3;
   }
-
+  
   if (capa == 3) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
@@ -176,13 +159,12 @@ function draw() {
     let copia3 = naranjas[colorNaranjas].get();
     copia3.mask(grafico[3]);
     image(copia3, 0, 0, width, height);
-
   }
 
   if (pincelada3[0].posY >= height) {
     capa = 4;
   }
-
+  
   if (capa == 4) {
     for (let i = 0; i < tam; i++) {
       if (haySonido) {
@@ -194,38 +176,43 @@ function draw() {
     image(copia4, 0, 0, width, height);
   }
 
-
   if (pincelada4[0].posY >= height) {
     capa = 5;
   }
 
-  if (capa >= 0) { //Aparecen los cuadrados por capas
+  if (capa >= 0) {
+    //Aparecen los cuadrados por capas
     cuadrados.dibujar();
   }
-  if (capa >= 1) { 
+  if (capa >= 1) {
     cuadrados.dibujar2();
   }
-  if (capa >= 2) { 
+  if (capa >= 2) {
     cuadrados.dibujar3();
   }
-  if (capa >= 3) { 
+  if (capa >= 3) {
     cuadrados.dibujar4();
   }
-  if (capa == 5) {
+  if (capa >= 5) {
     cuadrados.mover(haySonido);
   }
 
-  subioelVolumen = amp;
 
-  //--------CLASIFICADOR------
+subioelVolumen = amp;
 
-  if(label == 'Silenciar'){
-    reiniciar();
-    label = ''; 
-  }else if(label == 'Aplauso'){
-    cambiaColor();
-    label = '';
-  }
+//--------CLASIFICADOR------
+
+if (label == "Silenciar") {
+  reiniciar();
+  label = "";
+} else if ((haySonido && diferenciaVolumen > umbral) || label == "Aplauso") {
+  cambiaColor();
+  label = "";
+}
+
+if (haySonido) {
+  console.log(amp);
+}
 
 }
 
@@ -236,23 +223,11 @@ function gotResult(error, results) {
 
   label = results[0].label;
   etiqueta = label;
-  console.log (results[0].label);
+  console.log(results[0].label);
 }
 
-function imprimirData() {
-
-  background(255);
-  push();
-  textSize(16);
-  fill(0);
-  let texto;
-  texto = 'amplitud: ' + amp;
-  text(texto, 10, 20);
-  pop();
-
-}
-
-function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
+function cambiaColor() {
+  //Vuelve a elegir una imagen -color- en cada capa
   if (capa == 0) {
     colorAmarillos = floor(random(0, 5));
   } else if (capa == 1) {
@@ -265,7 +240,6 @@ function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
     colorMarrones2 = floor(random(0, 8));
   }
 }
-
 
 function reiniciar() {
   setup();
@@ -291,4 +265,3 @@ function reiniciar() {
   colorNaranjas = floor(random(0, 7));
   colorMarrones2 = floor(random(0, 8));
 }
-
