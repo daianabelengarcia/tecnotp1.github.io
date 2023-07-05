@@ -40,6 +40,7 @@ let colorMarrones1;
 let colorNaranjas;
 let colorMarrones2;
 
+
 //------CLASIFICADOR-----
 let classifier;
 const options = { probabilityThreshold: 0.8 };
