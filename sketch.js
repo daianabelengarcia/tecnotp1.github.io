@@ -46,7 +46,7 @@ let classifier;
 const options = { probabilityThreshold: 0.8 };
 let label;
 let etiqueta;
-const classModel = 'https://teachablemachine.withgoogle.com/models/SinBwQf_x/'; //url del modelo producido con Teachable Machine
+const classModel = 'https://teachablemachine.withgoogle.com/models/AWOQJGwws/'; //url del modelo producido con Teachable Machine
 
 
 function preload() {
@@ -223,7 +223,7 @@ function draw() {
 
   //--------CLASIFICADOR------
 
-  if(label == 'Shhhhh'){
+  if(label == 'Silenciar'){
     reiniciar();
     label = ''; //no sacar esto [sabemos que hace?] [no] 
     //[podemos sacarlo?] [no, se rompe el programa]
