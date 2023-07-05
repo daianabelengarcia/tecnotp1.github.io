@@ -13,7 +13,7 @@ class Pincelada {
 
   dibujarGrafico(grafico) {
 
-    this.posY = this.y += 8;
+    this.posY = this.y += 9;
     this.x = sin(this.counter) * 20 + this.posX;
 
     grafico.fill(0,0,0,this.transparencia);
