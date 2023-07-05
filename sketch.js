@@ -1,6 +1,6 @@
 //-------CONFIGURACION----
 
-let AMP_MIN = 0.05; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
+let AMP_MIN = 0.07; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
 let IMPRIMIR = false;
 
 //-----ENTRADA DE AUDIO----
@@ -43,7 +43,7 @@ let colorMarrones2;
 
 //------CLASIFICADOR-----
 let classifier;
-const options = { probabilityThreshold: 0.8 };
+const options = { probabilityThreshold: 0.7 };
 let label;
 let etiqueta;
 const classModel = 'https://teachablemachine.withgoogle.com/models/AWOQJGwws/'; //url del modelo producido con Teachable Machine
@@ -111,9 +111,9 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
-  if (haySonido && diferenciaVolumen > umbral) { //Elije una nueva imagen del color cuando supera el umbral de amplitud
+  /* if (haySonido && diferenciaVolumen > umbral) { //Elije una nueva imagen del color cuando supera el umbral de amplitud
     cambiaColor();
-  }
+  } */
 
   if (capa == 0) {
     for (let i = 0; i < tam; i++) {
@@ -217,30 +217,23 @@ function draw() {
 
   subioelVolumen = amp;
 
-  // if (haySonido) {
-  //   console.log(amp);
-  // }
-
   //--------CLASIFICADOR------
 
   if(label == 'Silenciar'){
     reiniciar();
-    label = ''; //no sacar esto [sabemos que hace?] [no] 
-    //[podemos sacarlo?] [no, se rompe el programa]
+    label = ''; 
   }else if(label == 'Aplauso'){
+    cambiaColor();
     label = '';
   }
 
 }
 
 function gotResult(error, results) {
-  // Display error in the console
   if (error) {
     console.error(error);
   }
-  // The results are in an array ordered by confidence.
-  //console.log(results);
-  // Show the first label and confidence
+
   label = results[0].label;
   etiqueta = label;
   console.log (results[0].label);
@@ -273,10 +266,6 @@ function cambiaColor() { //Vuelve a elegir una imagen -color- en cada capa
   }
 }
 
-// function mouseClicked() {
-//   setup(); // Vuelve a ejecutar la función setup()
-//   reiniciar();
-// }
 
 function reiniciar() {
   setup();
