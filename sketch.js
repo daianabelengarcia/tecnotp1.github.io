@@ -44,7 +44,10 @@ let classifier;
 const options = { probabilityThreshold: 0.7 };
 let label;
 let etiqueta;
-const classModel = "https://teachablemachine.withgoogle.com/models/AWOQJGwws/"; //url del modelo producido con Teachable Machine
+// Teachable Machine model URL:
+let soundModel = './data/';
+//const classModel = "https://teachablemachine.withgoogle.com/models/AWOQJGwws/"; //url del modelo producido con Teachable Machine
+//const classModel = "./data/model.json";
 
 function preload() {
   lienzo = loadImage("img/lienzo.jpg");
@@ -62,7 +65,8 @@ function preload() {
   }
 
   //------CLASIFICADOR-----
-  classifier = ml5.soundClassifier(classModel + "model.json", options);
+  //classifier = ml5.soundClassifier(classModel + "model.json", options);
+  classifier = ml5.soundClassifier(soundModel + 'model.json');
 }
 
 function setup() {
