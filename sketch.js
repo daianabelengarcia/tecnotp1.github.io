@@ -1,7 +1,6 @@
 //-------CONFIGURACION----
 
 let AMP_MIN = 0.07; // umbral mínimo de amplitud. Señal que supera al ruido de fondo
-let IMPRIMIR = false;
 
 //-----ENTRADA DE AUDIO----
 let mic;
@@ -11,26 +10,28 @@ let mic;
 let amp;
 let haySonido = false;
 let subioelVolumen;
-let umbral = 0.2;
+let umbral = 0.2; //Medida de amplitud para cambiar de color cuando detecta aplausos o ruidos similares
 
 //-----PINCELADAS----
-let tam = 30;
+let tam = 30; //cantidad de pinceladas por capa
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
 let pincelada3 = [];
 let pincelada4 = [];
-let tr = 90; //transparencia de caminantes
 
-//-----CAPAS e IMAGENES----
-let cuadrados;
-let lienzo;
+//-----CAPAS,IMAGENES,PGRAPHICS----
+let lienzo; 
 let capa;
+
 let marrones = [];
 let naranjas = [];
 let amarillos = [];
 let colores = [];
+let cuadrados;
+
 let grafico = [];
+let copia; 
 
 //-----CAMBIO DE COLORES----
 let colorAmarillos;
@@ -46,8 +47,12 @@ let label;
 let etiqueta;
 const classModel = "https://teachablemachine.withgoogle.com/models/AWOQJGwws/"; //url del modelo producido con Teachable Machine
 
+
 function preload() {
+  //-----Background-----
   lienzo = loadImage("img/lienzo.jpg");
+
+  //-----Pinceladas-----
   for (let i = 0; i < 8; i++) {
     marrones[i] = loadImage("img/marron-" + i + ".jpg");
   }
@@ -71,20 +76,21 @@ function setup() {
 
   mic = new p5.AudioIn();
   mic.start();
-  userStartAudio(); // esto lo utilizo porque en algunos navigadores se cuelga el audio. Esto hace un reset del motor de audio (audio context)
+  userStartAudio(); // Esto hace un reset del motor de audio (audio context)
 
   for (let i = 0; i < 5; i++) {
     grafico[i] = createGraphics(width, height);
   }
 
   for (let i = 0; i < tam; i++) {
-    pincelada0.push(new Pincelada(tr));
-    pincelada1.push(new Pincelada(tr));
-    pincelada2.push(new Pincelada(tr));
-    pincelada3.push(new Pincelada(tr));
-    pincelada4.push(new Pincelada(tr));
+    pincelada0.push(new Pincelada());
+    pincelada1.push(new Pincelada());
+    pincelada2.push(new Pincelada());
+    pincelada3.push(new Pincelada());
+    pincelada4.push(new Pincelada());
   }
   cuadrados = new Cuadrados();
+
   capa = 0;
 
   colorAmarillos = floor(random(0, 5));
@@ -103,119 +109,76 @@ function draw() {
   haySonido = amp > AMP_MIN;
   let diferenciaVolumen = amp - subioelVolumen;
 
+  //-----CAPA 0-----
   if (capa == 0) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada0[i].dibujarGrafico(grafico[0]);
-      }
-    }
-    let copia0 = amarillos[colorAmarillos].get();
-    copia0.mask(grafico[0]);
-    image(copia0, 0, 0, width, height);
-  } 
-  
-  if (pincelada0[0].posY >= height) {
-    capa = 1;
+    pintar(pincelada0, amarillos, colorAmarillos);
   }
-  
+
+  cambiaCapa(pincelada0, 1);
+
+  //-----CAPA 1-----
   if (capa == 1) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada1[i].dibujarGrafico(grafico[1]);
-      }
-    }
-    let copia1 = colores[colorColores].get();
-    copia1.mask(grafico[1]);
-    image(copia1, 0, 0, width, height);
+    pintar(pincelada1, colores, colorColores);
   }
 
-  if (pincelada1[0].posY >= height) {
-    capa = 2;
-  }
-  
+  cambiaCapa(pincelada1, 2);
+
+  //-----CAPA 2-----
   if (capa == 2) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada2[i].dibujarGrafico(grafico[2]);
-      }
-    }
-
-    let copia2 = marrones[colorMarrones1].get();
-    copia2.mask(grafico[2]);
-    image(copia2, 0, 0, width, height);
+    pintar(pincelada2, marrones, colorMarrones1);
   }
 
-  if (pincelada2[0].posY >= height) {
-    capa = 3;
-  }
-  
+  cambiaCapa(pincelada2, 3);
+
+  //-----CAPA 3-----
   if (capa == 3) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada3[i].dibujarGrafico(grafico[3]);
-      }
-    }
-
-    let copia3 = naranjas[colorNaranjas].get();
-    copia3.mask(grafico[3]);
-    image(copia3, 0, 0, width, height);
+    pintar(pincelada3, naranjas, colorNaranjas);
   }
 
-  if (pincelada3[0].posY >= height) {
-    capa = 4;
-  }
-  
+  cambiaCapa(pincelada3, 4);
+
+  //-----CAPA 4-----
   if (capa == 4) {
-    for (let i = 0; i < tam; i++) {
-      if (haySonido) {
-        pincelada4[i].dibujarGrafico(grafico[4]);
-      }
-    }
-    let copia4 = marrones[colorMarrones2].get();
-    copia4.mask(grafico[4]);
-    image(copia4, 0, 0, width, height);
+    pintar(pincelada4, marrones, colorMarrones2);
   }
 
-  if (pincelada4[0].posY >= height) {
-    capa = 5;
-  }
+  cambiaCapa(pincelada4, 5);
 
-  if (capa >= 0) {
-    //Aparecen los cuadrados por capas
+//-----CUADRADOS-----
+  if (capa == 0) {
     cuadrados.dibujar();
-  }
-  if (capa >= 1) {
+  } else if (capa == 1) {
     cuadrados.dibujar2();
-  }
-  if (capa >= 2) {
+  } else if (capa == 2) {
     cuadrados.dibujar3();
-  }
-  if (capa >= 3) {
+  } else if (capa >= 3) {
     cuadrados.dibujar4();
   }
-  if (capa >= 5) {
+
+//-----CAPA 5-----
+  if (capa == 5) {
     cuadrados.mover(haySonido);
   }
 
+  subioelVolumen = amp;
 
-subioelVolumen = amp;
+  //--------CLASIFICADOR------
 
-//--------CLASIFICADOR------
+  if (label == "Silenciar") {
+    reiniciar();
+    label = "";
+  } else if ((haySonido && diferenciaVolumen > umbral) || label == "Aplauso") {
+    cambiaColor();
+    label = "";
+  }
 
-if (label == "Silenciar") {
-  reiniciar();
-  label = "";
-} else if ((haySonido && diferenciaVolumen > umbral) || label == "Aplauso") {
-  cambiaColor();
-  label = "";
+  if (haySonido) {
+    console.log(amp);
+  }
+
 }
 
-if (haySonido) {
-  console.log(amp);
-}
-
-}
-
+//-----Función del Teachable Machine-----
 function gotResult(error, results) {
   if (error) {
     console.error(error);
@@ -226,8 +189,8 @@ function gotResult(error, results) {
   console.log(results[0].label);
 }
 
+//-----Función para volver a elegin una imagen (color) en cada capa-----
 function cambiaColor() {
-  //Vuelve a elegir una imagen -color- en cada capa
   if (capa == 0) {
     colorAmarillos = floor(random(0, 5));
   } else if (capa == 1) {
@@ -241,27 +204,29 @@ function cambiaColor() {
   }
 }
 
-function reiniciar() {
-  setup();
-  pincelada0 = [];
-  pincelada1 = [];
-  pincelada2 = [];
-  pincelada3 = [];
-  pincelada4 = [];
+//-----Función para llamar a las pinceladas-----
+function pintar(numPincelada, colorImagen, eleccionImagen) {
 
   for (let i = 0; i < tam; i++) {
-    pincelada0.push(new Pincelada(tr));
-    pincelada1.push(new Pincelada(tr));
-    pincelada2.push(new Pincelada(tr));
-    pincelada3.push(new Pincelada(tr));
-    pincelada4.push(new Pincelada(tr));
+    if (haySonido) {
+      numPincelada[i].dibujarGrafico(grafico[capa]);
+    }
   }
+  copia = colorImagen[eleccionImagen].get();
+  copia.mask(grafico[capa]);
+  image(copia, 0, 0, width, height);
 
-  capa = 0;
-
-  colorAmarillos = floor(random(0, 5));
-  colorColores = floor(random(0, 7));
-  colorMarrones1 = floor(random(0, 8));
-  colorNaranjas = floor(random(0, 7));
-  colorMarrones2 = floor(random(0, 8));
 }
+
+//-----Función para pasar a la siguiente capa-----
+function cambiaCapa(numPincelada, numCapa) {
+  if (numPincelada[0].posY >= height) {
+    capa = numCapa;
+  }
+}
+
+//-----Reinicio-----
+function reiniciar() {
+  setup();
+}
+

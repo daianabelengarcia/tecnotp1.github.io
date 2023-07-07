@@ -42,59 +42,26 @@ class Cuadrados {
   }
 
   dibujar2() {
+    this.dibujar();
     push();
     translate(width/2 + this.distanciaCuadradosX+10, height/2 + this.distanciaCuadradosY/2);
-    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
-      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-        let x = i * this.distanciaCuadradosX;
-        let y = c * this.distanciaCuadradosY;
-        this.posX = x;
-        this.posY = y;
-
-        let index = i * this.filas + c;
-        let indice = this.indiceAleatorio[index];
-
-        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
-      }
-    }
+    this.dibujar ();
     pop();
   }
 
   dibujar3() {
+    this.dibujar2();
     push();
     translate(width/2 + this.distanciaCuadradosX+10, 0);
-    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
-      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-        let x = i * this.distanciaCuadradosX;
-        let y = c * this.distanciaCuadradosY;
-        this.posX = x;
-        this.posY = y;
-
-        let index = i * this.filas + c;
-        let indice = this.indiceAleatorio[index];
-
-        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
-      }
-    }
+    this.dibujar ();
     pop();
   }
 
   dibujar4() {
+    this.dibujar3();
     push();
     translate(0, height/2 + this.distanciaCuadradosY/2);
-    for (let i = 0; i < this.cantidadDeCuadrados; i++) {
-      for (let c = 0; c < this.cantidadDeCuadradosY; c++) {
-        let x = i * this.distanciaCuadradosX;
-        let y = c * this.distanciaCuadradosY;
-        this.posX = x;
-        this.posY = y;
-
-        let index = i * this.filas + c;
-        let indice = this.indiceAleatorio[index];
-
-        image(this.imagenes[indice], this.posX-30, this.posY, 15, 25);
-      }
-    }
+    this.dibujar ();
     pop();
   }
 
