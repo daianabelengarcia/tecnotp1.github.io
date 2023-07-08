@@ -228,5 +228,27 @@ function cambiaCapa(numPincelada, numCapa) {
 //-----Reinicio-----
 function reiniciar() {
   setup();
+  pincelada0 = [];
+  pincelada1 = [];
+  pincelada2 = [];
+  pincelada3 = [];
+  pincelada4 = [];
+
+  for (let i = 0; i < tam; i++) {
+    pincelada0.push(new Pincelada(tr));
+    pincelada1.push(new Pincelada(tr));
+    pincelada2.push(new Pincelada(tr));
+    pincelada3.push(new Pincelada(tr));
+    pincelada4.push(new Pincelada(tr));
+  }
+
+  capa = 0;
+
+  colorAmarillos = floor(random(0, 5));
+  colorColores = floor(random(0, 7));
+  colorMarrones1 = floor(random(0, 8));
+  colorNaranjas = floor(random(0, 7));
+  colorMarrones2 = floor(random(0, 8));
 }
+
 
