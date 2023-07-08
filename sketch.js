@@ -225,6 +225,12 @@ function cambiaCapa(numPincelada, numCapa) {
   }
 }
 
+function mousePressed(){
+reiniciar();
+}
+
+
+
 //-----Reinicio-----
 function reiniciar() {
   setup();
