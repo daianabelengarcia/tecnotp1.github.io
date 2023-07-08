@@ -13,7 +13,7 @@ let subioelVolumen;
 let umbral = 0.2; //Medida de amplitud para cambiar de color cuando detecta aplausos o ruidos similares
 
 //-----PINCELADAS----
-let tam = 30; //cantidad de pinceladas por capa
+let tam = 25; //cantidad de pinceladas por capa
 let pincelada0 = [];
 let pincelada1 = [];
 let pincelada2 = [];
@@ -50,7 +50,7 @@ const classModel = "https://teachablemachine.withgoogle.com/models/AWOQJGwws/"; 
 
 function preload() {
   //-----Background-----
-  lienzo = loadImage("img/lienzo.jpg");
+  lienzo = loadImage("img/fondo.jpg");
 
   //-----Pinceladas-----
   for (let i = 0; i < 8; i++) {
@@ -145,7 +145,7 @@ function draw() {
   cambiaCapa(pincelada4, 5);
 
 //-----CUADRADOS-----
-  if (capa == 0) {
+  if (capa == 0 && pincelada0[0].posY >= 1) {
     cuadrados.dibujar();
   } else if (capa == 1) {
     cuadrados.dibujar2();
@@ -225,36 +225,33 @@ function cambiaCapa(numPincelada, numCapa) {
   }
 }
 
-function mousePressed(){
-reiniciar();
-}
-
-
-
 //-----Reinicio-----
 function reiniciar() {
-  setup();
+  image(lienzo, 0, 0, width, height);
+
+  for (let i = 0; i < 5; i++) {
+    grafico[i] = createGraphics(width, height);
+  } 
+
   pincelada0 = [];
   pincelada1 = [];
   pincelada2 = [];
   pincelada3 = [];
-  pincelada4 = [];
+  pincelada4 = []; 
 
   for (let i = 0; i < tam; i++) {
-    pincelada0.push(new Pincelada(tr));
-    pincelada1.push(new Pincelada(tr));
-    pincelada2.push(new Pincelada(tr));
-    pincelada3.push(new Pincelada(tr));
-    pincelada4.push(new Pincelada(tr));
+    pincelada0.push(new Pincelada());
+    pincelada1.push(new Pincelada());
+    pincelada2.push(new Pincelada());
+    pincelada3.push(new Pincelada());
+    pincelada4.push(new Pincelada());
   }
+
+  cuadrados = new Cuadrados();
 
   capa = 0;
 
-  colorAmarillos = floor(random(0, 5));
-  colorColores = floor(random(0, 7));
-  colorMarrones1 = floor(random(0, 8));
-  colorNaranjas = floor(random(0, 7));
-  colorMarrones2 = floor(random(0, 8));
+  cambiaColor();
 }
 
 
