@@ -42,7 +42,7 @@ let colorMarrones2;
 
 //------CLASIFICADOR-----
 let classifier;
-const options = { probabilityThreshold: 0.7 };
+const options = { probabilityThreshold: 0.8 };
 let label;
 let etiqueta;
 const classModel = "https://teachablemachine.withgoogle.com/models/AWOQJGwws/"; //url del modelo producido con Teachable Machine
